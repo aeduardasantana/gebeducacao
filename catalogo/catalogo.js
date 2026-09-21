@@ -170,7 +170,10 @@
     const external = /^https?:/.test(row.url || '');
 
     let action;
-    if (row.channel === 'bolsa') {
+    if (row.level === 'Profissionalizante' && row.institution === 'GEB Educação') {
+      const professionalUrl = 'https://educacao.grupoeduardabispo.com.br/cursos?q=' + encodeURIComponent(row.name);
+      action = '<a class="catalog-cta" href="'+escapeAttr(professionalUrl)+'" target="_blank" rel="noopener">Ver curso ↗</a>';
+    } else if (row.channel === 'bolsa') {
       action = '<a class="catalog-cta" href="'+escapeAttr(row.url || '#')+'" '+(external?'target="_blank" rel="noopener"':'')+'>'+cta(row)+(external?' ↗':'')+'</a>';
     } else if (row.channel === 'eligibility') {
       action = '<a class="catalog-cta" href="../tecnico-por-competencia/">'+cta(row)+'</a>';
