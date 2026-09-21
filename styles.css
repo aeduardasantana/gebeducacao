@@ -1354,3 +1354,102 @@ h3 { font-size: 1.12rem; line-height: 1.35; }
   .formation-levels-nav a { min-height: 78px; }
   .formation-levels-footer { justify-content: flex-start; }
 }
+
+
+/* Etapa 6.2 — tópico 3: modelo institucional GEB Educação */
+.institutional-model {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.institutional-model-head {
+  display: grid;
+  grid-template-columns: minmax(0,1.05fr) minmax(320px,.75fr);
+  gap: clamp(42px, 8vw, 110px);
+  align-items: end;
+  margin-bottom: 46px;
+}
+.institutional-model-head h2 {
+  max-width: 670px;
+  margin-bottom: 0;
+}
+.institutional-model-copy p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 620px;
+  font-size: 1.02rem;
+}
+.institutional-model-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.model-column {
+  min-height: 360px;
+  padding: 30px 28px 28px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,.38);
+  display: flex;
+  flex-direction: column;
+}
+.model-column-primary {
+  background: #fff;
+}
+.model-index {
+  color: var(--gold-deep);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  margin-bottom: 42px;
+}
+.model-label {
+  margin: 0 0 10px;
+  color: var(--gold-deep);
+  font-size: .66rem;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+.model-column h3 {
+  margin-bottom: 14px;
+  max-width: 290px;
+  font-size: 1.2rem;
+}
+.model-column > p:not(.model-label) {
+  margin: 0;
+  color: var(--muted);
+  font-size: .94rem;
+}
+.model-column .text-link {
+  margin-top: auto;
+  padding-top: 26px;
+  font-size: .88rem;
+}
+.institutional-model-note {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: .55fr 1.45fr;
+  gap: 26px;
+  align-items: start;
+}
+.institutional-model-note span {
+  color: var(--muted);
+  font-size: .88rem;
+}
+.institutional-model-note strong {
+  max-width: 760px;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .institutional-model-head { grid-template-columns: 1fr; }
+  .institutional-model-grid { grid-template-columns: 1fr; }
+  .model-column { min-height: 0; }
+  .model-index { margin-bottom: 26px; }
+  .institutional-model-note { grid-template-columns: 1fr; gap: 8px; }
+}
