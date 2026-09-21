@@ -280,14 +280,15 @@
     leadFormView.hidden = true;
     leadSuccess.hidden = false;
 
-    if (data.price) {
+    if (data.pixMain) {
       leadPrice.hidden = false;
-      priceMain.textContent = data.price;
-      const details = [data.enrollment ? 'Matrícula: '+data.enrollment : '', data.installment || ''].filter(Boolean);
-      priceDetail.textContent = details.join(' • ');
+      priceMain.textContent = data.pixMain;
+      priceDetail.textContent = data.pixTotal || '';
       successText.textContent = 'Seus dados foram registrados e a condição comercial foi liberada.';
     } else {
-      successText.textContent = 'Seu interesse foi registrado. Continue pelo atendimento do GEB Educação.';
+      successText.textContent = data.requiresEligibility
+        ? 'Seu interesse foi registrado. A condição comercial será apresentada após a verificação de elegibilidade.'
+        : 'Seu interesse foi registrado. Continue pelo atendimento do GEB Educação.';
     }
   });
 })();
