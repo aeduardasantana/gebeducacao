@@ -800,3 +800,105 @@ body { background: var(--paper); }
   .lead-form-grid { grid-template-columns: 1fr; }
   .lead-dialog-shell { padding-top: 42px; }
 }
+
+
+/* Ajuste do modal de captação — desktop e mobile */
+.lead-dialog {
+  width: min(840px, calc(100vw - 32px));
+  max-height: none;
+  overflow: visible;
+}
+.lead-dialog-shell {
+  padding: 30px 34px 28px;
+  max-height: none;
+  overflow: visible;
+}
+.lead-dialog h2 {
+  font-size: clamp(1.9rem, 3.2vw, 2.9rem);
+  line-height: 1.02;
+  margin-bottom: 10px;
+  max-width: 690px;
+}
+.lead-intro {
+  margin-bottom: 18px;
+}
+.lead-form-grid {
+  grid-template-columns: 1fr 1fr 92px;
+  gap: 12px;
+}
+.lead-form-grid label:nth-child(1) { grid-column: 1 / 2; }
+.lead-form-grid label:nth-child(2) { grid-column: 2 / 3; }
+.lead-form-grid label:nth-child(3) { grid-column: 1 / 2; }
+.lead-form-grid label:nth-child(4) { grid-column: 2 / 3; }
+.lead-form-grid .lead-state { grid-column: 3 / 4; grid-row: 2; }
+.lead-form input {
+  min-height: 44px;
+}
+.lead-consent {
+  margin: 16px 0 14px;
+}
+.lead-submit {
+  min-height: 46px;
+}
+.lead-status {
+  margin-top: 7px;
+}
+
+@media (max-width: 760px) {
+  .lead-dialog {
+    width: min(100%, calc(100vw - 16px));
+    max-width: none;
+    max-height: calc(100dvh - 16px);
+    margin: auto;
+    overflow: hidden;
+  }
+  .lead-dialog-shell {
+    max-height: calc(100dvh - 16px);
+    overflow-y: auto;
+    padding: 34px 20px 24px;
+  }
+  .lead-dialog h2 {
+    font-size: clamp(1.65rem, 8vw, 2.25rem);
+    line-height: 1.04;
+    padding-right: 24px;
+  }
+  .lead-form-grid {
+    grid-template-columns: 1fr 84px;
+    gap: 10px;
+  }
+  .lead-form-grid label:nth-child(1),
+  .lead-form-grid label:nth-child(2),
+  .lead-form-grid label:nth-child(3),
+  .lead-form-grid label:nth-child(4) {
+    grid-column: 1 / -1;
+  }
+  .lead-form-grid .lead-state {
+    grid-column: 1 / 2;
+    grid-row: auto;
+    max-width: 100px;
+  }
+  .lead-form input {
+    min-height: 46px;
+    font-size: 16px;
+  }
+  .lead-consent {
+    margin: 14px 0;
+  }
+  .lead-dialog-close {
+    right: 12px;
+    top: 10px;
+  }
+}
+
+@media (max-width: 420px) {
+  .lead-dialog {
+    width: 100vw;
+    max-height: 100dvh;
+  }
+  .lead-dialog-shell {
+    min-height: 100dvh;
+    max-height: 100dvh;
+    border: 0;
+    padding: 34px 16px 22px;
+  }
+}
