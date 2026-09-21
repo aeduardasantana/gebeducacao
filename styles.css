@@ -13,8 +13,14 @@
   --line: #d9d4ca;
   --muted: #6f6c65;
   --max: 1180px;
-  --radius: 4px;
-  --shadow: 0 18px 50px rgba(10, 10, 10, 0.08);
+  --radius: 2px;
+  --shadow: 0 12px 32px rgba(10, 10, 10, 0.055);
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 64px;
+  --space-2xl: 96px;
 }
 
 * { box-sizing: border-box; }
@@ -1028,4 +1034,43 @@ body { background: var(--paper); }
   .course-meta-strip { grid-template-columns:1fr; }
   .curriculum-table th,
   .curriculum-table td { padding:11px 9px; font-size:.84rem; }
+}
+
+
+/* Etapa 6 — Sistema Institucional GEB Educação */
+body { font-size: 16px; }
+p { text-wrap: pretty; }
+h1, h2, h3 { text-wrap: balance; }
+h1 { font-weight: 700; }
+h2 { font-weight: 700; }
+h3 { font-weight: 700; letter-spacing: -.02em; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.button, .nav-cta, input, select, textarea, dialog { border-radius: var(--radius); }
+.button { letter-spacing: .01em; }
+.main-nav a { font-weight: 500; }
+.main-nav .nav-cta { font-weight: 600; }
+.section-heading > p:last-child, .hero-text, .feature-copy, .split-copy p { max-width: 68ch; }
+.info-card, .path-card, .dark-card, .pair-card, .catalog-card, .course-sidebar { box-shadow: none; }
+.site-footer address {
+  margin-top: 18px;
+  color: rgba(255,255,255,.62);
+  font-style: normal;
+  font-size: .86rem;
+  line-height: 1.65;
+}
+.site-footer address strong {
+  display: block;
+  margin-bottom: 4px;
+  color: rgba(255,255,255,.88);
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.institutional-intro h2 { max-width: 16ch; }
+@media (max-width: 760px) {
+  .container { width: min(calc(100% - 32px), var(--max)); }
+  .section { padding: 64px 0; }
+  .hero { padding: 64px 0; }
+  h1 { font-size: clamp(2.35rem, 12vw, 3.5rem); }
+  h2 { font-size: clamp(1.85rem, 9vw, 2.75rem); }
 }
