@@ -1,4 +1,14 @@
 (() => {
+
+  const leadEndpoint = [
+    'https://script.google.com/macros/s/',
+    'AKfycbxKRehb8vPKcoxxVCRWuwrf0aG0NGVDuZjnkWJqh2MBoshFCQ4Q37qgVCDjKb3ebUFe1A',
+    '/exec'
+  ].join('');
+  document.querySelectorAll('[data-apps-script-form]').forEach(form => {
+    form.action = leadEndpoint;
+  });
+
   const raw = window.GEB_RAW || {};
 
   const normalize = (v='') => String(v).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
