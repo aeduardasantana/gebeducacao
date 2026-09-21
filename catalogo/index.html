@@ -52,6 +52,62 @@
       </div>
 
       <div class="catalog-results" data-results aria-live="polite"></div>
+      <dialog class="lead-dialog" data-lead-dialog>
+        <div class="lead-dialog-shell">
+          <button class="lead-dialog-close" type="button" data-lead-close aria-label="Fechar">×</button>
+          <div data-lead-form-view>
+            <p class="eyebrow dark">GEB EDUCAÇÃO</p>
+            <h2 data-lead-title>Consultar formação</h2>
+            <p class="lead-intro" data-lead-intro>Preencha seus dados para continuar.</p>
+
+            <form class="lead-form" method="post"
+              action="https://script.google.com/macros/s/AKfycbxbpiyJ9fck3b6peCnCwIK19bpbvOXub5hWnY3OPq1aBdOk42b8bQ1YcnsCkyf2udcSOw/exec"
+              target="gebLeadFrame" data-lead-form>
+              <div class="lead-form-grid">
+                <label><span>Nome *</span><input name="name" required autocomplete="name"></label>
+                <label><span>WhatsApp *</span><input name="phone" required inputmode="tel" autocomplete="tel" placeholder="(62) 99999-9999"></label>
+                <label><span>E-mail</span><input name="email" type="email" autocomplete="email"></label>
+                <label><span>Cidade</span><input name="city" autocomplete="address-level2"></label>
+                <label class="lead-state"><span>UF</span><input name="state" maxlength="2" autocomplete="address-level1" placeholder="GO"></label>
+              </div>
+
+              <label class="lead-consent">
+                <input type="checkbox" name="consent" required>
+                <span>Autorizo o GEB Educação a utilizar estes dados para responder ao meu interesse nesta formação.</span>
+              </label>
+
+              <input type="text" name="website" tabindex="-1" autocomplete="off" class="lead-honeypot" aria-hidden="true">
+              <input type="hidden" name="course">
+              <input type="hidden" name="courseId">
+              <input type="hidden" name="institution">
+              <input type="hidden" name="level">
+              <input type="hidden" name="source" value="Site GEB Educação">
+              <input type="hidden" name="campaign">
+              <input type="hidden" name="pageUrl">
+
+              <button class="button button-dark lead-submit" type="submit">Enviar e continuar</button>
+              <p class="lead-status" data-lead-status aria-live="polite"></p>
+            </form>
+          </div>
+
+          <div class="lead-success" data-lead-success hidden>
+            <p class="eyebrow dark">DADOS RECEBIDOS</p>
+            <h2>Pronto.</h2>
+            <p data-lead-success-text>Seu interesse foi registrado.</p>
+            <div class="lead-price" data-lead-price hidden>
+              <span>Investimento</span>
+              <strong data-price-main></strong>
+              <small data-price-detail></small>
+            </div>
+            <div class="section-actions">
+              <a class="button button-dark" href="https://wa.me/5562992053534" target="_blank" rel="noopener">Falar com o GEB ↗</a>
+              <button class="button button-outline-dark" type="button" data-lead-close>Fechar</button>
+            </div>
+          </div>
+        </div>
+      </dialog>
+
+      <iframe name="gebLeadFrame" class="lead-frame" title="Envio de dados GEB Educação"></iframe>
       <div class="catalog-empty" data-empty hidden>
         <h2>Nenhuma formação encontrada.</h2>
         <p>Tente outro termo ou remova um dos filtros.</p>
