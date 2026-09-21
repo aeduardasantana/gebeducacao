@@ -158,8 +158,10 @@
     let action;
     if (row.channel === 'bolsa') {
       action = '<a class="catalog-cta" href="'+escapeAttr(row.url || '#')+'" '+(external?'target="_blank" rel="noopener"':'')+'>'+cta(row)+(external?' ↗':'')+'</a>';
+    } else if (row.channel === 'eligibility') {
+      action = '<a class="catalog-cta" href="../tecnico-por-competencia/">'+cta(row)+'</a>';
     } else {
-      action = '<button class="catalog-cta catalog-lead-button" type="button" data-lead-open data-row-id="'+row.id+'">'+cta(row)+'</button>';
+      action = '<a class="catalog-cta" href="../formacao/?id='+encodeURIComponent(courseId(row))+'">Ver formação</a>';
     }
 
     a.innerHTML =
