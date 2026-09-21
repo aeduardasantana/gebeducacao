@@ -259,16 +259,25 @@
     if (ev.target === dialog) dialog.close();
   });
 
+  let leadSubmitTimeout = null;
+
   leadForm?.addEventListener('submit', () => {
     leadStatus.textContent = 'Enviando seus dados...';
     const submit = leadForm.querySelector('.lead-submit');
     if (submit) submit.disabled = true;
+
+    clearTimeout(leadSubmitTimeout);
+    leadSubmitTimeout = setTimeout(() => {
+      if (submit) submit.disabled = false;
+      leadStatus.textContent = 'O envio demorou mais do que o esperado. Tente novamente.';
+    }, 15000);
   });
 
   window.addEventListener('message', (event) => {
     const data = event.data || {};
     if (!data || typeof data !== 'object' || !('success' in data)) return;
 
+    clearTimeout(leadSubmitTimeout);
     const submit = leadForm?.querySelector('.lead-submit');
     if (submit) submit.disabled = false;
 
