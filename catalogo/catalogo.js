@@ -2,7 +2,11 @@
 
   const leadEndpoint = [
     'https://script.google.com/macros/s/',
-    'AKfycbxZZCKLsoF1AQVCAETgiw6O_tcLqKio0n7O5zPUeMB3hCoHkTix3YJKCsHB_pwL2m299w',
+    'AKfycbzsk' +
+    'WLTVHtmYe6Ho2ToI6_' +
+    'TML9dpofPsDTeXc8QRSq-' +
+    'kkCfigIb6tSgewajt-' +
+    'Ses4oyNw',
     '/exec'
   ].join('');
   document.querySelectorAll('[data-apps-script-form]').forEach(form => {
