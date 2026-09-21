@@ -83,7 +83,34 @@
     });
   });
 
-  const $ = (s) => document.querySelector(s);
+  rows.push(
+    {
+      id: rows.length + 1,
+      name: 'EJA — Educação de Jovens e Adultos',
+      level: 'EJA',
+      institution: 'Programa parceiro',
+      area: 'Educação',
+      workload: null,
+      duration: null,
+      mode: 'EAD',
+      channel: 'external',
+      url: 'https://ejamaisbrasil.com.br/consultor/geb/bolsas/?content_level=2&level=2&city=Trindade&state=GO&affiliate_id=2602'
+    },
+    {
+      id: rows.length + 2,
+      name: 'EJA + Técnico',
+      level: 'EJA + Técnico',
+      institution: 'Programa parceiro',
+      area: 'Educação',
+      workload: null,
+      duration: null,
+      mode: 'EAD',
+      channel: 'external',
+      url: 'https://ejamaisbrasil.com.br/consultor/geb/bolsas/?content_level=21&level=21&city=Trindade&state=GO&affiliate_id=2602'
+    }
+  );
+
+    const $ = (s) => document.querySelector(s);
   const search = $('[data-search]');
   const level = $('[data-level]');
   const institution = $('[data-institution]');
@@ -170,7 +197,9 @@
     const external = /^https?:/.test(row.url || '');
 
     let action;
-    if (row.level === 'Profissionalizante' && row.institution === 'GEB Educação') {
+    if (row.channel === 'external') {
+      action = '<a class="catalog-cta" href="'+escapeAttr(row.url)+'" target="_blank" rel="noopener">Consultar oferta ↗</a>';
+    } else if (row.level === 'Profissionalizante' && row.institution === 'GEB Educação') {
       const professionalUrl = 'https://educacao.grupoeduardabispo.com.br/cursos?q=' + encodeURIComponent(row.name);
       action = '<a class="catalog-cta" href="'+escapeAttr(professionalUrl)+'" target="_blank" rel="noopener">Ver curso ↗</a>';
     } else if (row.channel === 'bolsa') {
