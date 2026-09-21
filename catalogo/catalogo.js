@@ -109,7 +109,15 @@
   function cta(row) {
     if (row.channel === 'eligibility') return 'Verificar elegibilidade';
     if (row.channel === 'bolsa') return 'Consultar bolsa';
-    return 'Falar com o GEB';
+    return 'Consultar investimento';
+  }
+
+  function slugify(v='') {
+    return normalize(v).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,140);
+  }
+
+  function courseId(row) {
+    return [row.institution,row.level,row.name].map(slugify).filter(Boolean).join('__');
   }
 
   function meta(row) {
@@ -146,13 +154,19 @@
     a.className = 'catalog-card';
     const tags = meta(row).map(x => '<span>'+escapeHtml(String(x))+'</span>').join('');
     const external = /^https?:/.test(row.url || '');
+
+    let action;
+    if (row.channel === 'bolsa') {
+      action = '<a class="catalog-cta" href="'+escapeAttr(row.url || '#')+'" '+(external?'target="_blank" rel="noopener"':'')+'>'+cta(row)+(external?' ↗':'')+'</a>';
+    } else {
+      action = '<button class="catalog-cta catalog-lead-button" type="button" data-lead-open data-row-id="'+row.id+'">'+cta(row)+'</button>';
+    }
+
     a.innerHTML =
       '<div class="catalog-card-top"><p class="catalog-inst">'+escapeHtml(row.institution)+'</p>'+
       '<span class="catalog-id">'+String(row.id).padStart(3,'0')+'</span></div>'+
       '<h2>'+escapeHtml(row.name)+'</h2>'+
-      '<div class="catalog-meta">'+tags+'</div>'+
-      '<a class="catalog-cta" href="'+escapeAttr(row.url || '#')+'" '+(external?'target="_blank" rel="noopener"':'')+'>'+
-      cta(row)+(external?' ↗':'')+'</a>';
+      '<div class="catalog-meta">'+tags+'</div>'+action;
     return a;
   }
 
@@ -189,4 +203,89 @@
   });
 
   render(true);
+
+  const dialog = document.querySelector('[data-lead-dialog]');
+  const leadForm = document.querySelector('[data-lead-form]');
+  const leadFormView = document.querySelector('[data-lead-form-view]');
+  const leadSuccess = document.querySelector('[data-lead-success]');
+  const leadTitle = document.querySelector('[data-lead-title]');
+  const leadIntro = document.querySelector('[data-lead-intro]');
+  const leadStatus = document.querySelector('[data-lead-status]');
+  const leadPrice = document.querySelector('[data-lead-price]');
+  const priceMain = document.querySelector('[data-price-main]');
+  const priceDetail = document.querySelector('[data-price-detail]');
+  const successText = document.querySelector('[data-lead-success-text]');
+
+  function openLead(row) {
+    if (!dialog || !leadForm) return;
+    leadForm.reset();
+    leadFormView.hidden = false;
+    leadSuccess.hidden = true;
+    leadPrice.hidden = true;
+    leadStatus.textContent = '';
+
+    leadTitle.textContent = row.name;
+    leadIntro.textContent = row.channel === 'eligibility'
+      ? 'Preencha seus dados para registrar seu interesse e seguir para a verificação de elegibilidade.'
+      : 'Preencha seus dados para consultar a condição comercial desta formação.';
+
+    leadForm.elements.course.value = row.name;
+    leadForm.elements.courseId.value = courseId(row);
+    leadForm.elements.institution.value = row.institution;
+    leadForm.elements.level.value = row.level;
+    leadForm.elements.pageUrl.value = location.href;
+
+    const params = new URLSearchParams(location.search);
+    leadForm.elements.source.value = params.get('utm_source') || 'Site GEB Educação';
+    leadForm.elements.campaign.value = params.get('utm_campaign') || '';
+
+    dialog.showModal();
+  }
+
+  results.addEventListener('click', (ev) => {
+    const button = ev.target.closest('[data-lead-open]');
+    if (!button) return;
+    const row = rows.find(r => String(r.id) === String(button.dataset.rowId));
+    if (row) openLead(row);
+  });
+
+  document.querySelectorAll('[data-lead-close]').forEach(btn => {
+    btn.addEventListener('click', () => dialog?.close());
+  });
+
+  dialog?.addEventListener('click', (ev) => {
+    if (ev.target === dialog) dialog.close();
+  });
+
+  leadForm?.addEventListener('submit', () => {
+    leadStatus.textContent = 'Enviando seus dados...';
+    const submit = leadForm.querySelector('.lead-submit');
+    if (submit) submit.disabled = true;
+  });
+
+  window.addEventListener('message', (event) => {
+    const data = event.data || {};
+    if (!data || typeof data !== 'object' || !('success' in data)) return;
+
+    const submit = leadForm?.querySelector('.lead-submit');
+    if (submit) submit.disabled = false;
+
+    if (!data.success) {
+      leadStatus.textContent = data.message || 'Não foi possível enviar. Tente novamente.';
+      return;
+    }
+
+    leadFormView.hidden = true;
+    leadSuccess.hidden = false;
+
+    if (data.price) {
+      leadPrice.hidden = false;
+      priceMain.textContent = data.price;
+      const details = [data.enrollment ? 'Matrícula: '+data.enrollment : '', data.installment || ''].filter(Boolean);
+      priceDetail.textContent = details.join(' • ');
+      successText.textContent = 'Seus dados foram registrados e a condição comercial foi liberada.';
+    } else {
+      successText.textContent = 'Seu interesse foi registrado. Continue pelo atendimento do GEB Educação.';
+    }
+  });
 })();
