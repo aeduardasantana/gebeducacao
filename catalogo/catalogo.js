@@ -83,6 +83,19 @@
     });
   });
 
+  rows.unshift({
+    id: 'PRO',
+    name: 'Cursos Profissionalizantes GEB Educação',
+    level: 'Profissionalizante',
+    institution: 'GEB Educação',
+    area: 'Todas as áreas',
+    workload: null,
+    duration: null,
+    mode: 'EAD',
+    channel: 'professional',
+    url: 'https://educacao.grupoeduardabispo.com.br/cursos'
+  });
+
   const $ = (s) => document.querySelector(s);
   const search = $('[data-search]');
   const level = $('[data-level]');
@@ -123,6 +136,7 @@
   function cta(row) {
     if (row.channel === 'eligibility') return 'Verificar elegibilidade';
     if (row.channel === 'bolsa') return 'Consultar bolsa';
+    if (row.channel === 'professional') return 'Ver cursos profissionalizantes';
     return 'Consultar investimento';
   }
 
@@ -146,7 +160,7 @@
     const q = normalize(search.value);
     return rows.filter(r => {
       const hay = normalize([r.name,r.level,r.institution,r.area].join(' '));
-      return (!q || hay.includes(q)) &&
+      return (!q || hay.includes(q) || (r.channel === 'professional' && q)) &&
         (!level.value || r.level === level.value) &&
         (!institution.value || r.institution === institution.value) &&
         (!area.value || r.area === area.value);
@@ -170,7 +184,11 @@
     const external = /^https?:/.test(row.url || '');
 
     let action;
-    if (row.channel === 'bolsa') {
+    if (row.channel === 'professional') {
+      const term = search.value.trim();
+      const href = row.url + (term ? '?q=' + encodeURIComponent(term) : '');
+      action = '<a class="catalog-cta" href="'+escapeAttr(href)+'" target="_blank" rel="noopener">'+cta(row)+' ↗</a>';
+    } else if (row.channel === 'bolsa') {
       action = '<a class="catalog-cta" href="'+escapeAttr(row.url || '#')+'" '+(external?'target="_blank" rel="noopener"':'')+'>'+cta(row)+(external?' ↗':'')+'</a>';
     } else if (row.channel === 'eligibility') {
       action = '<a class="catalog-cta" href="../tecnico-por-competencia/">'+cta(row)+'</a>';
