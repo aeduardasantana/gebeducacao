@@ -81,17 +81,31 @@
     form.querySelector('.lead-submit').disabled=false;
     if(!data.success){ status.textContent=data.message||'Não foi possível enviar. Tente novamente.'; return; }
     formView.hidden=true; success.hidden=false;
-    if(data.price){
+    if(data.pixMain){
       leadPrice.hidden=false;
-      document.querySelector('[data-price-main]').textContent=data.price;
-      const details=[data.enrollment?'Matrícula: '+data.enrollment:'',data.installment||''].filter(Boolean);
-      document.querySelector('[data-price-detail]').textContent=details.join(' • ');
+      document.querySelector('[data-price-main]').textContent=data.pixMain;
+      document.querySelector('[data-price-detail]').textContent=data.pixTotal || '';
+      const cardMain=document.querySelector('[data-card-main]');
+      const cardDetail=document.querySelector('[data-card-detail]');
+      if(cardMain) cardMain.textContent=data.cardPrice || '';
+      if(cardDetail) cardDetail.textContent=data.cardCondition || '';
       document.querySelector('[data-lead-success-text]').textContent='Seus dados foram registrados e a condição comercial foi liberada.';
-      document.querySelector('[data-course-price]').hidden=false;
-      document.querySelector('[data-card-price]').textContent=data.price;
-      document.querySelector('[data-pix-price]').textContent=details.join(' • ');
+
+      const coursePrice=document.querySelector('[data-course-price]');
+      coursePrice.hidden=false;
+      const pixMain=document.querySelector('[data-pix-main]');
+      const pixTotal=document.querySelector('[data-pix-total]');
+      const cardPrice=document.querySelector('[data-card-price]');
+      const cardCondition=document.querySelector('[data-card-condition]');
+      if(pixMain) pixMain.textContent=data.pixMain;
+      if(pixTotal) pixTotal.textContent=data.pixTotal || '';
+      if(cardPrice) cardPrice.textContent=data.cardPrice || '';
+      if(cardCondition) cardCondition.textContent=data.cardCondition || '';
     } else {
-      document.querySelector('[data-lead-success-text]').textContent='Seu interesse foi registrado. O GEB Educação dará continuidade ao atendimento.';
+      document.querySelector('[data-lead-success-text]').textContent=
+        data.requiresEligibility
+          ? 'Seu interesse foi registrado. A condição comercial será apresentada após a verificação de elegibilidade.'
+          : 'Seu interesse foi registrado. O GEB Educação dará continuidade ao atendimento.';
     }
   });
 
