@@ -48,6 +48,33 @@
     'Formação comercializada pelo GEB Educação. A instituição responsável é '+row.institution+
     (row.duration ? '. Duração informada: '+row.duration : '')+'.';
 
+  const internationalNotice = document.querySelector('[data-international-notice]');
+  const instNorm = normalize(row.institution);
+  const levelNorm = normalize(row.level);
+  const isEnber = instNorm.includes('enber');
+  if (internationalNotice && isEnber && (levelNorm.includes('mestrado') || levelNorm === 'doutorado')) {
+    internationalNotice.hidden = false;
+    internationalNotice.innerHTML =
+      '<div class="academic-notice">'+
+      '<p class="eyebrow dark">FORMAÇÃO INTERNACIONAL</p>'+
+      '<h2>Curso internacional — ENBER</h2>'+
+      '<p>Formação 100% online e em português, oferecida por instituição sediada nos Estados Unidos.</p>'+
+      '<p>O diploma é emitido no exterior e <strong>não corresponde a um diploma brasileiro previamente reconhecido pelo MEC</strong>.</p>'+
+      '<p>Quando for necessário obter o reconhecimento do diploma estrangeiro no Brasil, o egresso deverá realizar o procedimento de reconhecimento aplicável. A instituição oferece suporte ao aluno nesse processo.</p>'+
+      '<p>O reconhecimento não é automático e depende do procedimento e da instituição brasileira competente.</p>'+
+      '</div>';
+  } else if (internationalNotice && isEnber && levelNorm.includes('pos-doutorado')) {
+    internationalNotice.hidden = false;
+    internationalNotice.innerHTML =
+      '<div class="academic-notice">'+
+      '<p class="eyebrow dark">SOBRE O PÓS-DOUTORADO</p>'+
+      '<h2>Formação internacional complementar</h2>'+
+      '<p>O Pós-Doutorado ENBER é uma formação internacional complementar destinada a pessoas que já concluíram o Doutorado.</p>'+
+      '<p>O Pós-Doutorado <strong>não constitui um novo grau acadêmico superior ao Doutorado</strong>. Ao final do programa, a ENBER emite uma <strong>Declaração de Conclusão do Pós-Doutorado</strong>.</p>'+
+      '<p>O programa possui duração mínima de 18 meses e é desenvolvido a partir de um plano de trabalho acompanhado por supervisor.</p>'+
+      '</div>';
+  }
+
   const matrix = matrices[id];
   const matrixEl = document.querySelector('[data-matrix]');
   if (matrix && Array.isArray(matrix.components) && matrix.components.length) {
