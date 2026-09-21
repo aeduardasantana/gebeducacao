@@ -39,7 +39,13 @@
     if (level === 'Técnico por Competência') {
       return {channel:'eligibility', url:'../tecnico-por-competencia/'};
     }
-    if (institution === 'Grupo Nossa Faculdade') {
+    if (level === 'Técnico' && institution === 'CPET — Escola Técnica do Brasil') {
+      return {
+        channel:'bolsa',
+        url:'https://tecnico.bolsamaisbrasil.com.br/geb/bolsas/pesquisa?content_level=10&course=&city=Trindade&state=GO&school=295'
+      };
+    }
+        if (institution === 'Grupo Nossa Faculdade') {
       if (level === 'Graduação') return {
         channel:'bolsa',
         url:'https://www.bolsamaisbrasil.com.br/geb/bolsas/pesquisa?content_level=5&course=&city=Trindade&state=GO&school=970'
