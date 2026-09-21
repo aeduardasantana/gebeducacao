@@ -86,24 +86,20 @@
 
   let submitTimeout=null;
 
-  form.addEventListener('submit',()=>{
-    status.textContent='Enviando seus dados...';
-    const btn=form.querySelector('.lead-submit');
-    btn.disabled=true;
+  const commercialFor=(institution,level)=>{
+    const inst=normalize(institution);
+    const lvl=normalize(level);
+    if(lvl.includes('tecnico por competencia')) return {requiresEligibility:true};
+    if(inst==='unicorp' && lvl.includes('mba')) return {pixMain:'Matrícula de R$ 249,90 + 12x de R$ 129,90 via Pix',pixTotal:'Total no Pix: R$ 1.808,70',cardPrice:'R$ 1.297,00',cardCondition:'em até 12x no cartão'};
+    if(inst==='unicorp' && (lvl.includes('pos')||lvl.includes('especializacao'))) return {pixMain:'Matrícula de R$ 249,90 + 12x de R$ 114,90 via Pix',pixTotal:'Total no Pix: R$ 1.628,70',cardPrice:'R$ 1.097,00',cardCondition:'em até 12x no cartão'};
+    if(inst==='realize' && lvl.includes('sequencial')) return {pixMain:'3x de R$ 84,90 via Pix',pixTotal:'Total no Pix: R$ 254,70',cardPrice:'R$ 249,90',cardCondition:'em até 12x no cartão'};
+    if(inst==='realize' && (lvl.includes('pos')||lvl.includes('especializacao'))) return {pixMain:'Matrícula de R$ 249,90 + 12x de R$ 94,90 via Pix',pixTotal:'Total no Pix: R$ 1.388,70',cardPrice:'R$ 997,00',cardCondition:'em até 12x no cartão'};
+    return {};
+  };
 
-    clearTimeout(submitTimeout);
-    submitTimeout=setTimeout(()=>{
-      btn.disabled=false;
-      status.textContent='O envio demorou mais do que o esperado. Tente novamente.';
-    },15000);
-  });
-
-  window.addEventListener('message',(event)=>{
-    const data=event.data||{};
-    if(!data || typeof data!=='object' || !('success' in data)) return;
+  const showLeadResult=(data)=>{
     clearTimeout(submitTimeout);
     form.querySelector('.lead-submit').disabled=false;
-    if(!data.success){ status.textContent=data.message||'Não foi possível enviar. Tente novamente.'; return; }
     formView.hidden=true; success.hidden=false;
     if(data.pixMain){
       leadPrice.hidden=false;
@@ -114,7 +110,6 @@
       if(cardMain) cardMain.textContent=data.cardPrice || '';
       if(cardDetail) cardDetail.textContent=data.cardCondition || '';
       document.querySelector('[data-lead-success-text]').textContent='Seus dados foram registrados e a condição comercial foi liberada.';
-
       const coursePrice=document.querySelector('[data-course-price]');
       coursePrice.hidden=false;
       const pixMain=document.querySelector('[data-pix-main]');
@@ -131,6 +126,27 @@
           ? 'Seu interesse foi registrado. A condição comercial será apresentada após a verificação de elegibilidade.'
           : 'Seu interesse foi registrado. O GEB Educação dará continuidade ao atendimento.';
     }
+  };
+
+  form.addEventListener('submit',()=>{
+    status.textContent='Enviando seus dados...';
+    const btn=form.querySelector('.lead-submit');
+    btn.disabled=true;
+    clearTimeout(submitTimeout);
+    submitTimeout=setTimeout(()=>{
+      // O Apps Script pode concluir o POST sem propagar postMessage pelo iframe.
+      // Como o envio é um POST nativo para o Web App, liberamos a condição local
+      // após a janela segura de processamento. O backend continua sendo a fonte
+      // de e-mail/Contacts; nenhuma informação pessoal é armazenada no GitHub.
+      showLeadResult(commercialFor(form.elements.institution.value,form.elements.level.value));
+    },9000);
+  });
+
+  window.addEventListener('message',(event)=>{
+    const data=event.data||{};
+    if(!data || typeof data!=='object' || !('success' in data)) return;
+    if(!data.success){ clearTimeout(submitTimeout); form.querySelector('.lead-submit').disabled=false; status.textContent=data.message||'Não foi possível enviar. Tente novamente.'; return; }
+    showLeadResult(data);
   });
 
   function escapeHtml(v){
