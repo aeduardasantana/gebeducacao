@@ -14,3 +14,16 @@ if (menuButton && menu) {
     });
   });
 }
+
+// catalogo-auto-link: mantém o catálogo acessível em todas as páginas institucionais.
+const mainNav = document.querySelector('.main-nav');
+if (mainNav && !mainNav.querySelector('a[href*="catalogo/"]')) {
+  const formacoesLink = [...mainNav.querySelectorAll('a')].find(a => a.getAttribute('href')?.includes('formacoes/'));
+  if (formacoesLink) {
+    const catalogLink = document.createElement('a');
+    const isInternalPage = formacoesLink.getAttribute('href').startsWith('../');
+    catalogLink.href = isInternalPage ? '../catalogo/' : './catalogo/';
+    catalogLink.textContent = 'Catálogo';
+    formacoesLink.insertAdjacentElement('afterend', catalogLink);
+  }
+}
