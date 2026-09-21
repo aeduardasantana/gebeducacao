@@ -94,19 +94,19 @@
       id: rows.length + 1,
       name: 'EJA — Educação de Jovens e Adultos',
       level: 'EJA',
-      institution: 'Programa parceiro',
+      institution: 'Nexus',
       area: 'Educação',
       workload: null,
       duration: null,
       mode: 'EAD',
-      channel: 'external',
-      url: 'https://ejamaisbrasil.com.br/consultor/geb/bolsas/?content_level=2&level=2&city=Trindade&state=GO&affiliate_id=2602'
+      channel: 'bolsa',
+      url: 'https://www.bolsamaisbrasil.com.br/geb/bolsas/pesquisa?content_level=2&course=&city=Trindade&state=GO&school=1020'
     },
     {
       id: rows.length + 2,
       name: 'EJA + Técnico',
       level: 'EJA + Técnico',
-      institution: 'Programa parceiro',
+      institution: 'CPET + Nexus',
       area: 'Educação',
       workload: null,
       duration: null,
