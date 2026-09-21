@@ -30,6 +30,8 @@ Site institucional do **GEB Educação**.
 6. O site deve ser responsivo e priorizar tráfego mobile vindo de redes sociais e WhatsApp.
 
 ## Etapa atual
-**Etapas 1–3 concluídas:** base técnica, rotas institucionais, home definitiva, aplicação da logo oficial e refinamento visual premium.
+**Etapas 1–4 concluídas:** base técnica, rotas institucionais, home definitiva, identidade oficial e catálogo estruturado com busca e filtros.
 
-Próxima etapa: catálogo estruturado, conteúdo das formações e dados comerciais.
+A base inicial do catálogo reúne **719 registros únicos** estruturados a partir dos materiais fornecidos para Unicorp, Realize, Grupo Nossa Faculdade, Escola Técnica do Brasil e Enber. Registros idênticos foram consolidados para navegação.
+
+Próxima etapa: páginas individuais, matrizes curriculares e dados comerciais.
