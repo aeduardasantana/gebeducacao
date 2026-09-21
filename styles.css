@@ -707,3 +707,96 @@ body { background: var(--paper); }
   .catalog-results { grid-template-columns: 1fr; }
   .catalog-card { min-height: 260px; }
 }
+
+
+/* Etapa 5 — captação de leads antes da condição comercial */
+.catalog-lead-button {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+.lead-dialog {
+  width: min(720px, calc(100% - 28px));
+  max-height: calc(100vh - 40px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.lead-dialog::backdrop { background: rgba(0,0,0,.72); backdrop-filter: blur(3px); }
+.lead-dialog-shell {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: clamp(28px,5vw,46px);
+  box-shadow: 0 28px 80px rgba(0,0,0,.28);
+}
+.lead-dialog-close {
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  border: 0;
+  background: transparent;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--muted);
+}
+.lead-intro { color: var(--muted); margin-top: -6px; margin-bottom: 24px; }
+.lead-form-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 14px;
+}
+.lead-form label { display: grid; gap: 7px; }
+.lead-form label > span {
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  font-weight: 700;
+}
+.lead-form input {
+  min-height: 48px;
+  border: 1px solid #c9c3b8;
+  background: #fff;
+  padding: 0 12px;
+  font: 500 .9rem/1 "Inter",sans-serif;
+}
+.lead-form input:focus { outline: 2px solid rgba(197,161,90,.32); border-color: var(--gold-deep); }
+.lead-consent {
+  grid-template-columns: 22px 1fr !important;
+  align-items: start;
+  margin: 22px 0;
+}
+.lead-consent input { min-height: auto; width: 17px; height: 17px; margin-top: 2px; }
+.lead-consent span { text-transform: none !important; letter-spacing: 0 !important; line-height: 1.5; font-weight: 500 !important; }
+.lead-honeypot {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+}
+.lead-submit { width: 100%; }
+.lead-submit:disabled { opacity: .55; cursor: wait; }
+.lead-status { min-height: 22px; color: var(--muted); font-size: .82rem; margin: 10px 0 0; }
+.lead-success h2 { margin-bottom: 10px; }
+.lead-success > p { color: var(--muted); }
+.lead-price {
+  margin-top: 28px;
+  border: 1px solid var(--ink);
+  background: #fff;
+  padding: 24px;
+  display: grid;
+  gap: 6px;
+}
+.lead-price span { color: var(--muted); font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; }
+.lead-price strong { font: 800 clamp(1.8rem,5vw,3rem)/1 "Manrope",sans-serif; }
+.lead-price small { color: var(--muted); }
+.lead-frame { position: fixed; width: 1px; height: 1px; border: 0; opacity: 0; pointer-events: none; }
+@media (max-width: 620px) {
+  .lead-form-grid { grid-template-columns: 1fr; }
+  .lead-dialog-shell { padding-top: 42px; }
+}
