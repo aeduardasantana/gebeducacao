@@ -70,14 +70,24 @@
   document.querySelectorAll('[data-lead-close]').forEach(btn=>btn.addEventListener('click',()=>dialog.close()));
   dialog.addEventListener('click',ev=>{ if(ev.target===dialog) dialog.close(); });
 
+  let submitTimeout=null;
+
   form.addEventListener('submit',()=>{
     status.textContent='Enviando seus dados...';
-    form.querySelector('.lead-submit').disabled=true;
+    const btn=form.querySelector('.lead-submit');
+    btn.disabled=true;
+
+    clearTimeout(submitTimeout);
+    submitTimeout=setTimeout(()=>{
+      btn.disabled=false;
+      status.textContent='O envio demorou mais do que o esperado. Tente novamente.';
+    },15000);
   });
 
   window.addEventListener('message',(event)=>{
     const data=event.data||{};
     if(!data || typeof data!=='object' || !('success' in data)) return;
+    clearTimeout(submitTimeout);
     form.querySelector('.lead-submit').disabled=false;
     if(!data.success){ status.textContent=data.message||'Não foi possível enviar. Tente novamente.'; return; }
     formView.hidden=true; success.hidden=false;
