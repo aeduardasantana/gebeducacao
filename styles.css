@@ -1117,3 +1117,96 @@ h3 { font-size: 1.12rem; line-height: 1.35; }
   h1 { font-size: clamp(2.25rem, 10.5vw, 3.2rem); line-height: 1.06; }
   h2 { font-size: clamp(1.75rem, 7.5vw, 2.4rem); }
 }
+
+
+/* Etapa 6.2 — tópico 1: Hero institucional da Home */
+.hero-editorial {
+  padding-top: clamp(72px, 8vw, 112px);
+  background: var(--ink);
+}
+.hero-editorial::before { display: none; }
+.hero-editorial .hero-grid {
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
+  gap: clamp(48px, 7vw, 92px);
+  align-items: center;
+}
+.hero-editorial .hero-copy { padding: 14px 0 28px; }
+.hero-editorial h1 {
+  max-width: 760px;
+  margin-bottom: 24px;
+  font-size: clamp(2.75rem, 4.7vw, 4.55rem);
+  line-height: 1.02;
+}
+.hero-editorial .hero-text {
+  max-width: 650px;
+  color: rgba(255,255,255,.72);
+}
+.hero-visual {
+  min-height: 500px;
+  border-left: 1px solid rgba(197,161,90,.48);
+  padding-left: 22px;
+}
+.hero-visual-placeholder {
+  min-height: 500px;
+  height: 100%;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.015), rgba(255,255,255,.055)),
+    #111;
+  border: 1px solid rgba(255,255,255,.1);
+}
+.hero-visual-placeholder span {
+  margin-bottom: auto;
+  color: var(--gold);
+  font-size: .67rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+.hero-visual-placeholder strong {
+  max-width: 330px;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  line-height: 1.15;
+  font-weight: 600;
+}
+.hero-visual-placeholder small {
+  margin-top: 14px;
+  color: rgba(255,255,255,.42);
+  font-size: .75rem;
+  letter-spacing: .04em;
+}
+.hero-editorial .hero-footline { margin-top: 64px; }
+
+@media (max-width: 980px) {
+  .hero-editorial .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual {
+    min-height: 320px;
+    padding-left: 0;
+    padding-top: 18px;
+    border-left: 0;
+    border-top: 1px solid rgba(197,161,90,.48);
+  }
+  .hero-visual-placeholder { min-height: 320px; }
+}
+@media (max-width: 620px) {
+  .hero-editorial { padding-top: 54px; }
+  .hero-editorial h1 {
+    font-size: clamp(2.2rem, 10.3vw, 3.15rem);
+    line-height: 1.05;
+  }
+  .hero-editorial .hero-copy { padding-bottom: 12px; }
+  .hero-visual, .hero-visual-placeholder { min-height: 250px; }
+  .hero-visual-placeholder { padding: 24px; }
+  .hero-editorial .hero-footline {
+    grid-template-columns: 1fr;
+    margin-top: 38px;
+  }
+  .hero-editorial .hero-footline span {
+    padding: 12px 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .hero-editorial .hero-footline span + span { padding-left: 0; }
+}
