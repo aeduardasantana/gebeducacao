@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Formação | GEB Educação</title>
+  <meta name="description" content="Conheça a formação, matriz curricular e condições comerciais pelo GEB Educação.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../"><img src="../assets/geb-educacao-logo.webp" alt="GEB Educação"></a>
+  <button class="nav-toggle" type="button" aria-label="Abrir menu" data-nav-toggle>Menu</button>
+  <nav class="site-nav" data-nav>
+    <a href="../formacoes/">Formações</a>
+    <a href="../catalogo/">Catálogo</a>
+    <a href="../bolsas/">Bolsas</a>
+    <a href="../sobre/">Sobre</a>
+    <a href="../contato/">Contato</a>
+  </nav>
+</header>
+
+<main class="course-page-main">
+  <section class="course-hero">
+    <div class="container">
+      <p class="eyebrow">GEB EDUCAÇÃO</p>
+      <h1 data-course-title>Formação</h1>
+      <p class="course-kicker" data-course-summary>Informações da formação comercializada pelo GEB Educação, com instituição responsável identificada.</p>
+      <div class="course-meta-strip">
+        <div class="course-meta-item"><span>Instituição</span><strong data-course-inst>—</strong></div>
+        <div class="course-meta-item"><span>Nível</span><strong data-course-level>—</strong></div>
+        <div class="course-meta-item"><span>Modalidade</span><strong data-course-mode>—</strong></div>
+        <div class="course-meta-item"><span>Carga horária</span><strong data-course-workload>—</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container course-layout">
+    <div>
+      <section class="course-section">
+        <p class="eyebrow dark">FORMAÇÃO</p>
+        <h2>Informações do curso</h2>
+        <p class="course-copy" data-course-info></p>
+      </section>
+
+      <section class="course-section">
+        <p class="eyebrow dark">CONTEÚDO</p>
+        <h2>Matriz curricular</h2>
+        <div data-matrix></div>
+      </section>
+    </div>
+
+    <aside class="course-sidebar">
+      <p class="eyebrow dark">CONDIÇÃO COMERCIAL</p>
+      <h2>Consulte o investimento</h2>
+      <p>Preencha seus dados para liberar a condição comercial desta formação.</p>
+      <button class="button button-dark" type="button" data-open-lead>Consultar investimento</button>
+      <div class="course-price-preview" data-course-price hidden>
+        <span>Cartão em até 12x</span>
+        <strong data-card-price></strong>
+        <small data-pix-price></small>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-bottom"><span>GEB Educação</span><span>Formações, orientação e oportunidades educacionais.</span></div>
+</footer>
+
+<dialog class="lead-dialog" data-lead-dialog>
+  <div class="lead-dialog-shell">
+    <button class="lead-dialog-close" type="button" data-lead-close aria-label="Fechar">×</button>
+    <div data-lead-form-view>
+      <p class="eyebrow dark">GEB EDUCAÇÃO</p>
+      <h2 data-lead-title>Consultar investimento</h2>
+      <p class="lead-intro">Preencha seus dados para consultar a condição comercial desta formação.</p>
+      <form class="lead-form" method="post"
+        action="https://script.google.com/macros/s/AKfycbxbpiyJ9fck3b6peCnCwIK19bpbvOXub5hWnY3OPq1aBdOk42b8bQ1YcnsCkyf2udcSOw/exec"
+        target="gebLeadFrame" data-lead-form>
+        <div class="lead-form-grid">
+          <label><span>Nome *</span><input name="name" required autocomplete="name"></label>
+          <label><span>WhatsApp *</span><input name="phone" required inputmode="tel" autocomplete="tel" placeholder="(62) 99999-9999"></label>
+          <label><span>E-mail</span><input name="email" type="email" autocomplete="email"></label>
+          <label><span>Cidade</span><input name="city" autocomplete="address-level2"></label>
+          <label class="lead-state"><span>UF</span><input name="state" maxlength="2" autocomplete="address-level1" placeholder="GO"></label>
+        </div>
+        <label class="lead-consent"><input type="checkbox" name="consent" required><span>Autorizo o GEB Educação a utilizar estes dados para responder ao meu interesse nesta formação.</span></label>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" class="lead-honeypot" aria-hidden="true">
+        <input type="hidden" name="course"><input type="hidden" name="courseId">
+        <input type="hidden" name="institution"><input type="hidden" name="level">
+        <input type="hidden" name="source" value="Site GEB Educação">
+        <input type="hidden" name="campaign"><input type="hidden" name="pageUrl">
+        <button class="button button-dark lead-submit" type="submit">Enviar e consultar</button>
+        <p class="lead-status" data-lead-status aria-live="polite"></p>
+      </form>
+    </div>
+    <div class="lead-success" data-lead-success hidden>
+      <p class="eyebrow dark">DADOS RECEBIDOS</p>
+      <h2>Condição liberada</h2>
+      <p data-lead-success-text>Seus dados foram registrados.</p>
+      <div class="lead-price" data-lead-price hidden>
+        <span>Cartão em até 12x</span><strong data-price-main></strong><small data-price-detail></small>
+      </div>
+      <div class="section-actions">
+        <a class="button button-dark" href="https://wa.me/5562992053534" target="_blank" rel="noopener">Falar com o GEB ↗</a>
+        <button class="button button-outline-dark" type="button" data-lead-close>Fechar</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+<iframe name="gebLeadFrame" class="lead-frame" title="Envio de dados GEB Educação"></iframe>
+
+<script src="../data/catalogo/raw-unicorp.js"></script>
+<script src="../data/catalogo/raw-realize-1.js"></script>
+<script src="../data/catalogo/raw-realize-2.js"></script>
+<script src="../data/matrizes.js"></script>
+<script src="../script.js"></script>
+<script src="./formacao.js"></script>
+</body>
+</html>
