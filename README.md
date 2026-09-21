@@ -30,6 +30,6 @@ Site institucional do **GEB Educação**.
 6. O site deve ser responsivo e priorizar tráfego mobile vindo de redes sociais e WhatsApp.
 
 ## Etapa atual
-**Etapa 1 concluída:** estrutura técnica + identidade visual base.
+**Etapas 1–3 concluídas:** base técnica, rotas institucionais, home definitiva, aplicação da logo oficial e refinamento visual premium.
 
-Próxima etapa: páginas institucionais e arquitetura completa de rotas/modalidades.
+Próxima etapa: catálogo estruturado, conteúdo das formações e dados comerciais.
