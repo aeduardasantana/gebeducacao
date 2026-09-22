@@ -75,17 +75,45 @@
       '</div>';
   }
 
+  /*
+   * Matrizes curriculares:
+   * exibidas somente nas formações do pacote comercial que usam esta página
+   * como fonte de detalhamento: Pós/MBA Unicorp, Pós/MBA/Sequencial Realize
+   * e Técnico por Competência. As demais formações mantêm suas próprias
+   * páginas/fontes de informação.
+   */
   const matrix = matrices[id];
   const matrixEl = document.querySelector('[data-matrix]');
-  if (matrix && Array.isArray(matrix.components) && matrix.components.length) {
+  const matrixSection = document.querySelector('[data-matrix-section]');
+  const isMatrixEligible =
+    (instNorm === 'unicorp' && (levelNorm === 'mba' || levelNorm.includes('pos-graduacao'))) ||
+    (instNorm === 'realize' && (levelNorm === 'mba' || levelNorm.includes('pos-graduacao') || levelNorm === 'sequencial')) ||
+    levelNorm.includes('tecnico por competencia');
+
+  const hasMatrix =
+    isMatrixEligible &&
+    matrix &&
+    Array.isArray(matrix.components) &&
+    matrix.components.length > 0;
+
+  if (matrixSection) matrixSection.hidden = !hasMatrix;
+
+  if (hasMatrix && matrixEl) {
     const rowsHtml = matrix.components.map(x =>
       '<tr><td>'+escapeHtml(x.name)+'</td><td>'+(x.hours ? escapeHtml(String(x.hours))+'h' : '—')+'</td></tr>'
     ).join('');
+
+    const matrixMeta = [
+      matrix.mode ? '<span><strong>Modalidade:</strong> '+escapeHtml(matrix.mode)+'</span>' : '',
+      matrix.duration ? '<span><strong>Duração:</strong> '+escapeHtml(matrix.duration)+'</span>' : '',
+      matrix.workload ? '<span><strong>Carga horária:</strong> '+escapeHtml(String(matrix.workload))+'h</span>' : ''
+    ].filter(Boolean).join('');
+
     matrixEl.innerHTML =
+      (matrixMeta ? '<div class="curriculum-meta">'+matrixMeta+'</div>' : '')+
+      '<div class="curriculum-table-wrap">'+
       '<table class="curriculum-table"><thead><tr><th>Componente curricular</th><th>Carga horária</th></tr></thead><tbody>'+
-      rowsHtml+'</tbody></table>';
-  } else {
-    matrixEl.innerHTML='<div class="course-matrix-empty">Matriz curricular em processamento para publicação nesta página.</div>';
+      rowsHtml+'</tbody></table></div>';
   }
 
   const dialog=document.querySelector('[data-lead-dialog]');
