@@ -281,7 +281,7 @@
     leadTitle.textContent = row.name;
     leadIntro.textContent = row.channel === 'eligibility'
       ? 'Preencha seus dados para registrar seu interesse e seguir para a verificação de elegibilidade.'
-      : 'Preencha seus dados para consultar a condição comercial desta formação.';
+      : 'Preencha seus dados para consultar o investimento desta formação.';
 
     leadForm.elements.course.value = row.name;
     leadForm.elements.courseId.value = courseId(row);
@@ -345,10 +345,10 @@
       leadPrice.hidden = false;
       priceMain.textContent = data.pixMain;
       priceDetail.textContent = data.pixTotal || '';
-      successText.textContent = 'Seus dados foram registrados e a condição comercial foi liberada.';
+      successText.textContent = 'Seus dados foram registrados e o investimento está disponível.';
     } else {
       successText.textContent = data.requiresEligibility
-        ? 'Seu interesse foi registrado. A condição comercial será apresentada após a verificação de elegibilidade.'
+        ? 'Seu interesse foi registrado. O investimento será apresentado após a verificação de elegibilidade.'
         : 'Seu interesse foi registrado. Continue pelo atendimento do GEB Educação.';
     }
   });
