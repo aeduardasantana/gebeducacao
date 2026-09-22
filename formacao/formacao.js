@@ -45,7 +45,7 @@
   document.querySelector('[data-course-mode]').textContent=row.mode || 'EAD';
   document.querySelector('[data-course-workload]').textContent=row.workload ? row.workload+'h' : 'Consulte';
   document.querySelector('[data-course-info]').textContent =
-    'Formação comercializada pelo GEB Educação. A instituição responsável é '+row.institution+
+    'Formação oferecida por '+row.institution+
     (row.duration ? '. Duração informada: '+row.duration : '')+'.';
 
   const internationalNotice = document.querySelector('[data-international-notice]');
@@ -136,7 +136,7 @@
       const cardDetail=document.querySelector('[data-card-detail]');
       if(cardMain) cardMain.textContent=data.cardPrice || '';
       if(cardDetail) cardDetail.textContent=data.cardCondition || '';
-      document.querySelector('[data-lead-success-text]').textContent='Seus dados foram registrados e a condição comercial foi liberada.';
+      document.querySelector('[data-lead-success-text]').textContent='Seus dados foram registrados e o investimento está disponível.';
       const coursePrice=document.querySelector('[data-course-price]');
       coursePrice.hidden=false;
       const pixMain=document.querySelector('[data-pix-main]');
@@ -150,7 +150,7 @@
     } else {
       document.querySelector('[data-lead-success-text]').textContent=
         data.requiresEligibility
-          ? 'Seu interesse foi registrado. A condição comercial será apresentada após a verificação de elegibilidade.'
+          ? 'Seu interesse foi registrado. O investimento será apresentado após a verificação de elegibilidade.'
           : 'Seu interesse foi registrado. O GEB Educação dará continuidade ao atendimento.';
     }
   };
