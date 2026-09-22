@@ -2070,3 +2070,44 @@ h3 { font-size: 1.12rem; line-height: 1.35; }
     grid-template-columns: 1fr;
   }
 }
+
+/* Home — background-home1 */
+.hero-home-bg {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  color: var(--white);
+  background:
+    linear-gradient(90deg, rgba(8,8,8,.84) 0%, rgba(8,8,8,.68) 45%, rgba(8,8,8,.34) 100%),
+    url("./assets/background-home1.png") center center / cover no-repeat;
+}
+.hero-home-bg .hero-home-bg-inner {
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  padding-top: 76px;
+  padding-bottom: 76px;
+}
+.hero-home-bg .hero-copy { max-width: 660px; }
+.hero-home-bg .hero-copy h1 {
+  max-width: 720px;
+  font-size: clamp(2.55rem, 5vw, 4.9rem);
+}
+.hero-home-bg .hero-text {
+  max-width: 610px;
+  color: rgba(255,255,255,.86);
+}
+.hero-home-bg .hero-footline {
+  position: relative;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  border-top: 1px solid rgba(255,255,255,.18);
+}
+@media (max-width: 760px) {
+  .hero-home-bg { background-position: 62% center; }
+  .hero-home-bg .hero-home-bg-inner {
+    min-height: 430px;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+}
