@@ -52,6 +52,23 @@
   const instNorm = normalize(row.institution);
   const levelNorm = normalize(row.level);
   const isEnber = instNorm.includes('enber');
+  const isTechnicalCompetency = levelNorm.includes('tecnico por competencia');
+
+  if (isTechnicalCompetency) {
+    document.querySelector('[data-course-summary]').textContent =
+      'Verifique a elegibilidade para o processo de análise da experiência profissional.';
+    document.querySelector('[data-course-info]').textContent =
+      'Técnico por Competência é um processo de análise da experiência profissional. Não se trata da venda de um curso.';
+    const sidebarTitle = document.querySelector('[data-sidebar-title]');
+    const sidebarText = document.querySelector('[data-sidebar-text]');
+    const openLead = document.querySelector('[data-open-lead]');
+    if (sidebarTitle) sidebarTitle.textContent = 'Verifique sua elegibilidade';
+    if (sidebarText) sidebarText.textContent =
+      'Informe seus dados para iniciar a verificação de elegibilidade para a análise da experiência profissional.';
+    if (openLead) openLead.textContent = 'Verificar elegibilidade';
+  }
+
+
   if (internationalNotice && isEnber && (levelNorm.includes('mestrado') || levelNorm === 'doutorado')) {
     internationalNotice.hidden = false;
     internationalNotice.innerHTML =
@@ -87,8 +104,7 @@
   const matrixSection = document.querySelector('[data-matrix-section]');
   const isMatrixEligible =
     (instNorm === 'unicorp' && (levelNorm === 'mba' || levelNorm.includes('pos-graduacao'))) ||
-    (instNorm === 'realize' && (levelNorm === 'mba' || levelNorm.includes('pos-graduacao') || levelNorm === 'sequencial')) ||
-    levelNorm.includes('tecnico por competencia');
+    (instNorm === 'realize' && (levelNorm === 'mba' || levelNorm.includes('pos-graduacao') || levelNorm === 'sequencial'));
 
   const hasMatrix =
     isMatrixEligible &&
