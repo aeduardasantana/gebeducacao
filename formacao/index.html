@@ -11,17 +11,26 @@
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-<header class="site-header">
-  <a class="brand" href="../"><img src="../assets/geb-educacao-logo.webp" alt="GEB Educação"></a>
-  <button class="nav-toggle" type="button" aria-label="Abrir menu" data-nav-toggle>Menu</button>
-  <nav class="site-nav" data-nav>
+<header class="site-header"><div class="container header-inner">
+  <a class="brand brand-logo" href="../" aria-label="GEB Educação - início"><img src="../assets/geb-educacao-logo.webp" alt="GEB Educação"></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" data-menu-button><span>Menu</span></button>
+  <nav id="menu-principal" class="main-nav" aria-label="Navegação principal" data-menu>
     <a href="../formacoes/">Formações</a>
     <a href="../catalogo/">Catálogo</a>
     <a href="../bolsas/">Bolsas</a>
-    <a href="../sobre/">Sobre</a>
-    <a href="../contato/">Contato</a>
+    <a href="../instituicoes/">Instituições</a>
+    <details class="nav-dropdown">
+      <summary>Institucional</summary>
+      <div class="nav-dropdown-menu">
+        <a href="../sobre/">Sobre o GEB Educação</a>
+        <a href="../polo/">Unidade Trindade/GO</a>
+        <a href="../contato/">Contato</a>
+      </div>
+    </details>
+    <a href="https://grupoeduardabispo.blogspot.com/" target="_blank" rel="noopener">Blog</a>
+    <a class="nav-cta" href="../formacoes/">Encontre sua formação</a>
   </nav>
-</header>
+</div></header>
 
 <main class="course-page-main">
   <section class="course-hero">
