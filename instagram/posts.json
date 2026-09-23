@@ -1,1 +1,41 @@
-[]
+[
+  {
+    "title": "PHP: do Básico ao Avançado",
+    "category": "Curso profissionalizante",
+    "image": "https://drive.google.com/uc?export=view&id=1wO83pSmodP6HB-RnedBLgaADb52_3I31",
+    "url": "https://educacao.grupoeduardabispo.com.br/cursos?q=PHP:%20Do%20B%C3%A1sico%20ao%20Avan%C3%A7ado",
+    "external": true,
+    "active": true
+  },
+  {
+    "title": "Processo seletivo da Saúde de Trindade",
+    "category": "Conteúdo",
+    "image": "https://drive.google.com/uc?export=view&id=1TDiBTisoQyFmPQc3plzy6ERec4NUt0Vc",
+    "url": "https://grupoeduardabispo.blogspot.com/2026/09/processo-seletivo-da-saude-de-trindade.html",
+    "external": true,
+    "active": true
+  },
+  {
+    "title": "O tempo não espera",
+    "category": "Conteúdo",
+    "image": "https://drive.google.com/uc?export=view&id=1DFEiBG425M-fqWN6M4pziv30uqAkQXMk",
+    "url": "https://grupoeduardabispo.blogspot.com/2026/08/o-tempo-nao-espera-por-que-o-futuro-dos.html",
+    "external": true,
+    "active": true
+  },
+  {
+    "title": "Catálogo GEB Educação",
+    "category": "Formações",
+    "image": "https://drive.google.com/uc?export=view&id=1vnu47mVKhLx5P5SCcD4EhVDxsadtt1Jz",
+    "url": "../catalogo/",
+    "active": true
+  },
+  {
+    "title": "GEB Educação chega a Trindade",
+    "category": "Institucional",
+    "image": "https://drive.google.com/uc?export=view&id=1QI7o6wA0a-KJolpl5UHsuhTRtnxr5Tef",
+    "url": "https://grupoeduardabispo.blogspot.com/2026/08/geb-educacao-chega-trindade-com.html",
+    "external": true,
+    "active": true
+  }
+]
