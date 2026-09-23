@@ -12,36 +12,57 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
   <style>
-    .instagram-hub{background:#f6f5f1;min-height:70vh;padding:64px 0 88px}
-    .instagram-hub-head{max-width:760px;margin-bottom:36px}
-    .instagram-hub-head h1{margin:8px 0 12px;font-family:Manrope,sans-serif;font-size:clamp(2rem,5vw,4rem);line-height:1.02;color:#111}
-    .instagram-hub-head p{max-width:650px;font-size:1.05rem;line-height:1.7;color:#555}
+    body{background:#f7f6f2}
+    .ig-header{background:#0b0b0b;border-bottom:1px solid #272727}
+    .ig-header-inner{max-width:1180px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .ig-logo img{width:104px;height:auto;display:block}
+    .ig-header-link{color:#fff;text-decoration:none;font:600 .82rem Inter,sans-serif;border:1px solid #b88a27;padding:11px 16px}
+    .instagram-hub{min-height:70vh;padding:48px 0 72px}
+    .instagram-hub .container{max-width:1040px}
+    .instagram-hub-head{text-align:center;max-width:780px;margin:0 auto 34px}
+    .instagram-hub-head h1{margin:10px 0 14px;font-family:Manrope,sans-serif;font-size:clamp(2rem,5vw,3.5rem);line-height:1.04;color:#111}
+    .instagram-hub-head>p:last-of-type{max-width:680px;margin:0 auto;font-size:1rem;line-height:1.65;color:#555}
+    .ig-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:24px}
+    .ig-action{min-width:180px;padding:12px 18px;border:1px solid #1b1b1b;color:#111;text-decoration:none;font:600 .86rem Inter,sans-serif;background:transparent}
+    .ig-action-primary{background:#111;color:#fff}
+    .ig-section-title{display:flex;align-items:center;gap:18px;margin:36px 0 18px;color:#666;font:600 .72rem Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase}
+    .ig-section-title:before,.ig-section-title:after{content:"";height:1px;background:#cbc8c0;flex:1}
     .instagram-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
     .instagram-post{position:relative;aspect-ratio:4/5;overflow:hidden;background:#e9e7e1;color:#111;text-decoration:none}
     .instagram-post img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease}
-    .instagram-post:hover img{transform:scale(1.025)}
-    .instagram-post-fallback{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;background:linear-gradient(145deg,#111 0%,#292929 100%);color:#fff}
-    .instagram-post-fallback span{font:600 .68rem/1.2 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+    .instagram-post:hover img{transform:scale(1.015)}
+    .instagram-post-fallback{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;background:linear-gradient(145deg,#111,#292929);color:#fff}
+    .instagram-post-fallback span{font:600 .68rem Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
     .instagram-post-fallback strong{margin-top:8px;font:700 clamp(.9rem,2vw,1.3rem)/1.15 Manrope,sans-serif}
-    .instagram-empty{grid-column:1/-1;border:1px solid #d9d6ce;background:#fff;padding:32px}
-    .instagram-empty strong{display:block;font:700 1.2rem Manrope,sans-serif;margin-bottom:8px}
-    .instagram-empty p{margin:0;color:#5a5a5a;line-height:1.6}
-    .instagram-site-link{display:inline-flex;margin-top:30px;font-weight:700;color:#111;text-decoration:none;border-bottom:1px solid #111;padding-bottom:4px}
-    @media(max-width:640px){.instagram-hub{padding:38px 0 64px}.instagram-grid{gap:3px}.instagram-post-fallback{padding:9px}.instagram-post-fallback span{font-size:.52rem}.instagram-post-fallback strong{font-size:.72rem}.instagram-hub-head{margin-bottom:24px}}
+    .instagram-empty{grid-column:1/-1;border-top:1px solid #d5d2ca;border-bottom:1px solid #d5d2ca;padding:30px 0;text-align:center}
+    .instagram-empty strong{display:block;font:700 1rem Manrope,sans-serif;margin-bottom:7px}
+    .instagram-empty p{margin:0;color:#666;font-size:.9rem}
+    .ig-footer{background:#0b0b0b;color:#fff}
+    .ig-footer-inner{max-width:1180px;margin:0 auto;padding:30px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .ig-footer-brand img{width:100px;height:auto;display:block;margin-bottom:10px}
+    .ig-footer-brand p{margin:0;color:#aaa;font-size:.78rem}
+    .ig-footer-links{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+    .ig-footer-links a{color:#ddd;text-decoration:none;font-size:.78rem}
+    @media(max-width:640px){
+      .ig-header-inner{padding:11px 14px}.ig-logo img{width:86px}.ig-header-link{font-size:.7rem;padding:9px 11px}
+      .instagram-hub{padding:30px 0 50px}.instagram-hub .container{padding-left:12px;padding-right:12px}
+      .instagram-hub-head{margin-bottom:24px}.instagram-hub-head h1{font-size:2rem}
+      .instagram-hub-head>p:last-of-type{font-size:.88rem}.ig-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+      .ig-action{min-width:0;padding:11px 8px;text-align:center;font-size:.75rem}.ig-action:last-child{grid-column:1/-1}
+      .ig-section-title{margin:28px 0 12px;font-size:.62rem;gap:10px}.instagram-grid{gap:3px}
+      .instagram-post-fallback{padding:8px}.instagram-post-fallback span{font-size:.48rem}.instagram-post-fallback strong{font-size:.68rem}
+      .ig-footer-inner{padding:24px 16px;align-items:flex-start;flex-direction:column}.ig-footer-links{gap:14px}
+    }
   </style>
 </head>
 <body>
 <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
-<header class="site-header"><div class="container header-inner">
-  <a class="brand brand-logo" href="../" aria-label="GEB Educação - início"><img src="../assets/geb-educacao-logo.webp" alt="GEB Educação"></a>
-  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" data-menu-button><span>Menu</span></button>
-  <nav id="menu-principal" class="main-nav" aria-label="Navegação principal" data-menu>
-    <a href="../formacoes/">Formações</a><a href="../catalogo/">Cursos</a><a href="../bolsas/">Bolsas</a>
-    <a href="../instituicoes/">Instituições de Ensino</a><a href="../sobre/">Sobre o GEB</a>
-    <a href="https://grupoeduardabispo.blogspot.com/" target="_blank" rel="noopener">Blog</a>
-    <a href="../contato/">Contato</a><a class="nav-cta" href="../formacoes/">Encontre sua formação</a>
-  </nav>
-</div></header>
+<header class="ig-header">
+  <div class="ig-header-inner">
+    <a class="ig-logo" href="../" aria-label="GEB Educação - início"><img src="../assets/geb-educacao-logo.webp" alt="GEB Educação"></a>
+    <a class="ig-header-link" href="../catalogo/">Encontre sua formação</a>
+  </div>
+</header>
 
 <main id="conteudo">
   <section class="instagram-hub">
@@ -49,24 +70,31 @@
       <div class="instagram-hub-head">
         <p class="eyebrow dark">GEB EDUCAÇÃO · INSTAGRAM</p>
         <h1>Encontre o post que você viu no Instagram.</h1>
-        <p>Cada publicação leva à formação, oportunidade ou informação relacionada. Quando um post não tiver um destino específico, ele direciona para o site do GEB Educação.</p>
+        <p>Cada publicação leva à formação, oportunidade ou informação relacionada. Quando não houver um destino específico, você segue para o GEB Educação.</p>
+        <div class="ig-actions">
+          <a class="ig-action ig-action-primary" href="https://www.instagram.com/grupoeduardabispo/" target="_blank" rel="noopener">Instagram</a>
+          <a class="ig-action" href="https://wa.me/5562992053534" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="ig-action" href="../">Site GEB Educação</a>
+        </div>
       </div>
+      <div class="ig-section-title"><span>Publicações</span></div>
       <div class="instagram-grid" id="instagram-grid" aria-live="polite">
         <div class="instagram-empty"><strong>Publicações em preparação.</strong><p>Enquanto os posts são adicionados, você pode acessar todas as formações pelo site do GEB Educação.</p></div>
       </div>
-      <a class="instagram-site-link" href="../">Acessar o site completo do GEB Educação →</a>
     </div>
   </section>
 </main>
 
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div><a class="brand brand-logo footer-brand-logo" href="../" aria-label="GEB Educação - início"><img src="../assets/geb-educacao-logo.webp" alt="GEB Educação"></a><p>Formação profissional, técnica e acadêmica para diferentes momentos da sua trajetória.</p></div>
-    <div><p class="footer-title">Formações</p><a href="../formacoes/">Mapa de formações</a><a href="https://educacao.grupoeduardabispo.com.br/" target="_blank" rel="noopener">Profissionalizantes ↗</a><a href="../tecnicos/">Técnicos</a><a href="../pos-mba/">Pós e MBA</a></div>
-    <div><p class="footer-title">Institucional</p><a href="../polo/">Unidade Trindade/GO</a><a href="../instituicoes/">Instituições</a><a href="../apoio/">Apoio ao aluno</a><a href="../sobre/">Sobre</a></div>
-    <div><p class="footer-title">Atendimento</p><a href="https://wa.me/5562992053534" target="_blank" rel="noopener">(62) 99205-3534</a><a href="https://grupoeduardabispo.blogspot.com/" target="_blank" rel="noopener">Blog GEB ↗</a></div>
+<footer class="ig-footer">
+  <div class="ig-footer-inner">
+    <div class="ig-footer-brand"><img src="../assets/geb-educacao-logo.webp" alt="GEB Educação"><p>Formação para diferentes etapas da sua trajetória.</p></div>
+    <nav class="ig-footer-links" aria-label="Acessos rápidos">
+      <a href="../">Site completo</a>
+      <a href="../catalogo/">Cursos</a>
+      <a href="../contato/">Contato</a>
+      <a href="https://www.instagram.com/grupoeduardabispo/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
   </div>
-  <div class="container footer-bottom"><span>GEB Educação — uma unidade do GEB.</span><span>Trindade/GO</span></div>
 </footer>
 <script src="../script.js"></script>
 <script>
