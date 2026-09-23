@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instagram | GEB Educação</title>
+  <meta name="description" content="Encontre no GEB Educação o conteúdo que você viu no Instagram e acesse a formação, oportunidade ou informação relacionada.">
+  <meta name="theme-color" content="#080808">
+  <meta name="robots" content="noindex,follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .instagram-hub{background:#f6f5f1;min-height:70vh;padding:64px 0 88px}
+    .instagram-hub-head{max-width:760px;margin-bottom:36px}
+    .instagram-hub-head h1{margin:8px 0 12px;font-family:Manrope,sans-serif;font-size:clamp(2rem,5vw,4rem);line-height:1.02;color:#111}
+    .instagram-hub-head p{max-width:650px;font-size:1.05rem;line-height:1.7;color:#555}
+    .instagram-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+    .instagram-post{position:relative;aspect-ratio:1/1;overflow:hidden;background:#e9e7e1;color:#111;text-decoration:none}
+    .instagram-post img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease}
+    .instagram-post:hover img{transform:scale(1.025)}
+    .instagram-post-fallback{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;background:linear-gradient(145deg,#111 0%,#292929 100%);color:#fff}
+    .instagram-post-fallback span{font:600 .68rem/1.2 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+    .instagram-post-fallback strong{margin-top:8px;font:700 clamp(.9rem,2vw,1.3rem)/1.15 Manrope,sans-serif}
+    .instagram-empty{grid-column:1/-1;border:1px solid #d9d6ce;background:#fff;padding:32px}
+    .instagram-empty strong{display:block;font:700 1.2rem Manrope,sans-serif;margin-bottom:8px}
+    .instagram-empty p{margin:0;color:#5a5a5a;line-height:1.6}
+    .instagram-site-link{display:inline-flex;margin-top:30px;font-weight:700;color:#111;text-decoration:none;border-bottom:1px solid #111;padding-bottom:4px}
+    @media(max-width:640px){.instagram-hub{padding:38px 0 64px}.instagram-grid{gap:3px}.instagram-post-fallback{padding:9px}.instagram-post-fallback span{font-size:.52rem}.instagram-post-fallback strong{font-size:.72rem}.instagram-hub-head{margin-bottom:24px}}
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+<header class="site-header"><div class="container header-inner">
+  <a class="brand brand-logo" href="../" aria-label="GEB Educação - início"><img src="../assets/geb-educacao-logo.webp" alt="GEB Educação"></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" data-menu-button><span>Menu</span></button>
+  <nav id="menu-principal" class="main-nav" aria-label="Navegação principal" data-menu>
+    <a href="../formacoes/">Formações</a><a href="../catalogo/">Cursos</a><a href="../bolsas/">Bolsas</a>
+    <a href="../instituicoes/">Instituições de Ensino</a><a href="../sobre/">Sobre o GEB</a>
+    <a href="https://grupoeduardabispo.blogspot.com/" target="_blank" rel="noopener">Blog</a>
+    <a href="../contato/">Contato</a><a class="nav-cta" href="../formacoes/">Encontre sua formação</a>
+  </nav>
+</div></header>
+
+<main id="conteudo">
+  <section class="instagram-hub">
+    <div class="container">
+      <div class="instagram-hub-head">
+        <p class="eyebrow dark">GEB EDUCAÇÃO · INSTAGRAM</p>
+        <h1>Encontre o post que você viu no Instagram.</h1>
+        <p>Cada publicação leva à formação, oportunidade ou informação relacionada. Quando um post não tiver um destino específico, ele direciona para o site do GEB Educação.</p>
+      </div>
+      <div class="instagram-grid" id="instagram-grid" aria-live="polite">
+        <div class="instagram-empty"><strong>Publicações em preparação.</strong><p>Enquanto os posts são adicionados, você pode acessar todas as formações pelo site do GEB Educação.</p></div>
+      </div>
+      <a class="instagram-site-link" href="../">Acessar o site completo do GEB Educação →</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><a class="brand brand-logo footer-brand-logo" href="../" aria-label="GEB Educação - início"><img src="../assets/geb-educacao-logo.webp" alt="GEB Educação"></a><p>Formação profissional, técnica e acadêmica para diferentes momentos da sua trajetória.</p></div>
+    <div><p class="footer-title">Formações</p><a href="../formacoes/">Mapa de formações</a><a href="https://educacao.grupoeduardabispo.com.br/" target="_blank" rel="noopener">Profissionalizantes ↗</a><a href="../tecnicos/">Técnicos</a><a href="../pos-mba/">Pós e MBA</a></div>
+    <div><p class="footer-title">Institucional</p><a href="../polo/">Unidade Trindade/GO</a><a href="../instituicoes/">Instituições</a><a href="../apoio/">Apoio ao aluno</a><a href="../sobre/">Sobre</a></div>
+    <div><p class="footer-title">Atendimento</p><a href="https://wa.me/5562992053534" target="_blank" rel="noopener">(62) 99205-3534</a><a href="https://grupoeduardabispo.blogspot.com/" target="_blank" rel="noopener">Blog GEB ↗</a></div>
+  </div>
+  <div class="container footer-bottom"><span>GEB Educação — uma unidade do GEB.</span><span>Trindade/GO</span></div>
+</footer>
+<script src="../script.js"></script>
+<script>
+(async function(){
+  const grid=document.getElementById('instagram-grid');
+  const defaultUrl='../';
+  try{
+    const response=await fetch('./posts.json',{cache:'no-store'});
+    if(!response.ok) throw new Error('posts');
+    const posts=await response.json();
+    const active=posts.filter(p=>p && p.active!==false);
+    if(!active.length) return;
+    grid.innerHTML='';
+    active.forEach((post,index)=>{
+      const a=document.createElement('a');
+      a.className='instagram-post';
+      a.href=post.url||defaultUrl;
+      a.setAttribute('aria-label',post.title||('Publicação '+(index+1)));
+      if(post.external){a.target='_blank';a.rel='noopener';}
+      if(post.image){
+        const img=document.createElement('img');
+        img.src=post.image; img.alt=post.title||''; img.loading=index<6?'eager':'lazy';
+        img.onerror=()=>{img.remove();addFallback(a,post);};
+        a.appendChild(img);
+      } else addFallback(a,post);
+      grid.appendChild(a);
+    });
+  }catch(e){}
+  function addFallback(a,post){
+    const box=document.createElement('div'); box.className='instagram-post-fallback';
+    const tag=document.createElement('span'); tag.textContent=post.category||'GEB EDUCAÇÃO';
+    const title=document.createElement('strong'); title.textContent=post.title||'Conheça nossas formações';
+    box.append(tag,title); a.appendChild(box);
+  }
+})();
+</script>
+</body>
+</html>
