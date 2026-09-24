@@ -1,5 +1,13 @@
 [
   {
+    "title": "Assistente de Logística",
+    "category": "Curso profissionalizante",
+    "image": "../assets/Instagram%20%40educacaoeadbrasil/0006-Assistente-de-Log%C3%ADstica-capa.webp",
+    "url": "https://educacao.grupoeduardabispo.com.br/cursos?q=Log%C3%ADstica",
+    "external": true,
+    "active": true
+  },
+  {
     "title": "PHP: do Básico ao Avançado",
     "category": "Curso profissionalizante",
     "image": "../assets/Instagram%20%40educacaoeadbrasil/0005-PHP-do-B%C3%A1sico-ao-Avan%C3%A7ado-capa.webp",
