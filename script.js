@@ -198,3 +198,13 @@ if (mainNav && !mainNav.querySelector('a[href*="catalogo/"]')) {
     }
   });
 })();
+
+// Crédito institucional de desenvolvimento em todas as páginas.
+(() => {
+  const footer = document.querySelector('footer');
+  if (!footer || footer.querySelector('a[href="https://gebtecnologia.grupoeduardabispo.com.br/"]')) return;
+  const bottom = footer.querySelector('.footer-bottom') || footer;
+  const credit = document.createElement('span');
+  credit.innerHTML = 'Desenvolvido por <a href="https://gebtecnologia.grupoeduardabispo.com.br/" target="_blank" rel="noopener noreferrer">Compass Rose Systems · GEB Tecnologia</a>';
+  bottom.appendChild(credit);
+})();
