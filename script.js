@@ -160,8 +160,6 @@ if (mainNav && !mainNav.querySelector('a[href*="catalogo/"]')) {
         <a href="/apoio/">Apoio ao aluno</a>
         <a href="/polo/">Unidade Trindade/GO</a>
         <a href="/sobre/">Sobre o GEB Educação</a>
-        <a href="/mapa-do-site/">Mapa do site</a>
-        <a href="https://grupoeduardabispo.com.br/" target="_blank" rel="noopener">GEB Institucional ↗</a>
       </div>
       <div>
         <p class="footer-title">Atendimento</p>
