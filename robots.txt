@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gebeducacao.grupoeduardabispo.com.br/sitemap.xml
