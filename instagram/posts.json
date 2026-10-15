@@ -36,7 +36,8 @@
     "category": "Formações",
     "image": "../assets/Instagram%20%40educacaoeadbrasil/0002-REEL-GEB-Educa%C3%A7%C3%A3o.webp",
     "url": "../catalogo/",
-    "active": true
+    "active": true,
+    "external": true
   },
   {
     "title": "GEB Educação chega a Trindade",
