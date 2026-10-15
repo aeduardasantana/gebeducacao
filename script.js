@@ -208,3 +208,42 @@ if (mainNav && !mainNav.querySelector('a[href*="catalogo/"]')) {
   credit.innerHTML = 'Desenvolvido por <a href="https://gebtecnologia.grupoeduardabispo.com.br/" target="_blank" rel="noopener noreferrer">Compass Rose Systems · GEB Tecnologia</a>';
   bottom.appendChild(credit);
 })();
+
+
+/* Faixa dinâmica de artigos Educação; atalhos e páginas sem rodapé ficam de fora. */
+(function(){
+  "use strict";
+  const path=location.pathname.replace(/\/index\.html$/,"/");
+  if(path==="/404.html"||path.startsWith("/atalho-")||document.getElementById("geb-blog-educacao"))return;
+  const footer=document.querySelector("footer");
+  if(!footer)return;
+  const style=document.createElement("link");
+  style.rel="stylesheet";style.href="/assets/blog-strip.css?v=20261015";
+  document.head.append(style);
+  const section=document.createElement("section");
+  section.id="geb-blog-educacao";section.className="geb-blog-educacao";
+  section.setAttribute("aria-labelledby","geb-blog-educacao-title");
+  const wrap=document.createElement("div");wrap.className="geb-blog-educacao__wrap";
+  const heading=document.createElement("div");heading.className="geb-blog-educacao__heading";
+  const info=document.createElement("div");
+  const kicker=document.createElement("span");kicker.className="geb-blog-educacao__kicker";kicker.textContent="BLOG GEB · EDUCAÇÃO";
+  const title=document.createElement("h2");title.id="geb-blog-educacao-title";title.className="geb-blog-educacao__title";title.textContent="Aprender é abrir novas possibilidades";
+  const summary=document.createElement("p");summary.className="geb-blog-educacao__summary";summary.textContent="Explore os três artigos mais recentes sobre estudos, formação e desenvolvimento profissional.";
+  info.append(kicker,title,summary);
+  const all=document.createElement("a");all.className="geb-blog-educacao__all";all.href="https://blog.grupoeduardabispo.com.br/?categoria=Educa%C3%A7%C3%A3o";all.textContent="Ver todos os artigos de Educação →";
+  heading.append(info,all);
+  const frame=document.createElement("iframe");frame.className="geb-blog-educacao__frame";
+  frame.title="Três artigos mais recentes da categoria Educação do Blog GEB";
+  frame.src="https://blog.grupoeduardabispo.com.br/assets/embed.html?categoria=Educa%C3%A7%C3%A3o&limite=3";
+  frame.loading="lazy";frame.referrerPolicy="strict-origin-when-cross-origin";
+  wrap.append(heading,frame);section.append(wrap);footer.before(section);
+  window.addEventListener("message",event=>{
+    if(event.origin!=="https://blog.grupoeduardabispo.com.br"||event.source!==frame.contentWindow)return;
+    if(!event.data||event.data.type!=="geb-blog-embed-height")return;
+    const height=Number(event.data.height);
+    if(Number.isFinite(height)&&height>=100&&height<=2500){
+      const target=Math.ceil(height)+"px";
+      if(frame.style.height!==target)frame.style.height=target;
+    }
+  });
+})();
