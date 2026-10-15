@@ -1,0 +1,12 @@
+/* Blog GEB · Educação — faixa editorial */
+.geb-blog-educacao{padding:64px 0 56px;background:#f7f5f0;border-top:1px solid #d9d4ca;color:#0a0a0a;font-family:Inter,Arial,sans-serif}
+.geb-blog-educacao *{box-sizing:border-box}
+.geb-blog-educacao__wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+.geb-blog-educacao__heading{display:flex;align-items:end;justify-content:space-between;gap:26px;margin-bottom:24px}
+.geb-blog-educacao__kicker{display:block;font-size:.77rem;letter-spacing:.13em;text-transform:uppercase;font-weight:800;color:#9d7228;margin-bottom:12px}
+.geb-blog-educacao__title{margin:0 0 9px;color:#0a0a0a;font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.15;letter-spacing:-.035em}
+.geb-blog-educacao__summary{margin:0;max-width:660px;font-size:.96rem;color:#6f6c65;line-height:1.65}
+.geb-blog-educacao__all{flex:0 0 auto;color:#765019!important;font-weight:800;font-size:.9rem;text-decoration:underline!important;text-underline-offset:4px;white-space:nowrap}
+.geb-blog-educacao__all:focus-visible{outline:2px solid #bf913f;outline-offset:4px}
+.geb-blog-educacao__frame{display:block;width:100%;height:420px;border:0;background:transparent}
+@media(max-width:760px){.geb-blog-educacao{padding:44px 0}.geb-blog-educacao__wrap{width:calc(100% - 28px)}.geb-blog-educacao__heading{display:block}.geb-blog-educacao__all{display:inline-block;margin-top:18px;white-space:normal}.geb-blog-educacao__frame{height:850px}}
