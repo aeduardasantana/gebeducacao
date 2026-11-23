@@ -124,8 +124,11 @@
     if (course2) fields.push("*Outra opção:* " + course2);
     if (!course1 && !course2) fields.push("*Curso/área:* Preciso de orientação para escolher");
     fields.push("*Modalidade:* " + get("mode"));
-    fields.push("*Solicitação:* " + get("intent"));
-    fields.push("", "Gostaria de consultar as bolsas disponíveis e suas condições. Obrigada!");
+    const wantsScholarship = form.elements.scholarshipConsultation.checked;
+    fields.push("*Consulta de bolsas de estudo disponíveis:* " + (wantsScholarship ? "Sim" : "Não selecionada"));
+    fields.push("", wantsScholarship
+      ? "Gostaria de consultar as bolsas de estudo disponíveis e suas condições. Obrigada!"
+      : "Gostaria de receber orientação sobre as formações disponíveis. Obrigada!");
     return fields.join("\n");
   }
 
