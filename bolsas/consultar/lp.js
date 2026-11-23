@@ -5,14 +5,12 @@
   // Não reutilize o endpoint do catálogo: ele tem outro esquema de dados.
   const SCRIPT_URL = ""; // Ex.: https://script.google.com/macros/s/AKfy.../exec
   const WHATSAPP = "5562992053534";
-  const MAX_AREAS = 3;
   const form = document.getElementById("lp-lead-form");
   const status = document.getElementById("lp-status");
   const stepLabel = document.getElementById("lp-step-label");
   const stepHeading = document.getElementById("lp-step-heading");
   const stepBars = Array.from(document.querySelectorAll(".lp-step-bars i"));
   const stepNodes = Array.from(document.querySelectorAll(".lp-step"));
-  const areas = Array.from(form.querySelectorAll('input[name="areas"]'));
   const submitBtn = document.getElementById("lp-submit");
   const success = document.getElementById("lp-success");
   const successProtocol = document.getElementById("lp-success-protocol");
@@ -42,24 +40,6 @@
     }
   }
 
-  function selectAreas() {
-    return areas.filter(box => box.checked).map(box => box.value);
-  }
-
-  areas.forEach(box => box.addEventListener("change", () => {
-    if (box.checked && selectAreas().length > MAX_AREAS) {
-      box.checked = false;
-      setStatus("Escolha até três áreas de interesse.");
-      return;
-    }
-    const selected = selectAreas();
-    const unsure = areas.find(a => a.value === "Ainda não sei");
-    if (box.checked && box === unsure) areas.filter(a => a !== unsure).forEach(a => { a.checked = false; });
-    if (box.checked && box !== unsure && unsure) unsure.checked = false;
-    if (selectAreas().length) document.getElementById("lp-areas").classList.remove("is-invalid");
-    setStatus("");
-  }));
-
   document.getElementById("lp-add-course").addEventListener("click", () => {
     document.getElementById("lp-extra-course-wrap").hidden = false;
     document.getElementById("lp-add-course").hidden = true;
@@ -79,12 +59,6 @@
         setStatus("Preencha os campos obrigatórios antes de continuar.");
         return false;
       }
-    }
-    if (step === 1 && selectAreas().length === 0) {
-      document.getElementById("lp-areas").classList.add("is-invalid");
-      document.getElementById("lp-areas").scrollIntoView({behavior:"smooth",block:"center"});
-      setStatus("Selecione ao menos uma área ou marque “Ainda não sei”.");
-      return false;
     }
     if (step === 2) {
       const phone = String(form.elements.phone.value).replace(/\D/g, "");
@@ -145,7 +119,7 @@
       "*Cidade/UF:* " + get("city") + "/" + get("state"),
       "*Para quem:* " + get("beneficiary"),
       "*Nível de formação:* " + get("level"),
-      "*Áreas de interesse:* " + selectAreas().join(", ")
+      "*Interesse:* " + (course1 || course2 || "Preciso de orientação para escolher")
     ];
     if (course1) fields.push("*Curso desejado:* " + course1);
     if (course2) fields.push("*Outra opção:* " + course2);
@@ -207,7 +181,6 @@
     if (!currentRequestId) currentRequestId = makeRequestId();
     const q = new URLSearchParams(window.location.search);
     putHidden("requestId", currentRequestId);
-    putHidden("areasJoined", selectAreas().join(" | "));
     putHidden("source", "LP Bolsas GEB Educação");
     putHidden("pageUrl", window.location.href.slice(0,600));
     for (const key of ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"]) putHidden(key,q.get(key) || "");
