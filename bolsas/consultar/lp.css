@@ -235,3 +235,8 @@ html { scroll-padding-top: 82px; }
  .lp-form-card-top { flex-wrap:wrap; }
  .lp-form-card-top strong { text-align:left; }
 }
+
+/* Endereço da unidade — alinhamento com rodapé institucional */
+.lp-footer address { display:flex; flex-direction:column; gap:3px; font-style:normal; line-height:1.5; color:#bcb7af; }
+.lp-footer address b { color:#f0e4d1; font-size:.81rem; margin-bottom:2px; }
+.lp-footer address span { display:block; }
