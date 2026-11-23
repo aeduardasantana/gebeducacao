@@ -58,3 +58,10 @@ Após modificar o código, use **Implantar → Gerenciar implantações → Edit
 - O conteúdo WebP retornado na inspeção do repositório apresentou divergência de tamanho no cabeçalho RIFF. Confirmar integridade do arquivo original publicado no navegador. Substituir o arquivo somente após obter uma cópia autêntica e íntegra da marca.
 - O banner “Privacidade e medição” visto em uma captura não consta no HTML nem no JavaScript desta LP. Verificar se é injetado pelo ambiente de hospedagem, tag manager, plugin ou camada de preview; não o ocultar por CSS sem revisar os requisitos de consentimento.
 - Verificar contraste, foco por teclado, carregamento de foto e SVG e legibilidade do formulário em larguras 360, 390, 768, 1024 e 1440 px antes da publicação.
+
+## Revisão de copy e FAQ — 2026-11-22
+- Removido o crédito visível "Foto ilustrativa: Unsplash" do rodapé. A licença Unsplash permite uso comercial sem atribuição obrigatória (https://unsplash.com/license).
+- A abertura da LP passou a apresentar de maneira direta as formações ofertadas: EJA, profissionalizantes, técnicos, graduação, pós-graduação, MBA e formação acadêmica internacional.
+- O FAQ agora distingue regulação de EJA pelos sistemas de ensino competentes, regularidade de graduações no e-MEC, certificados de cursos livres/qualificação, diplomas técnicos e SISTEC, pós-graduação lato sensu e títulos estrangeiros.
+- **Atenção:** antes de publicar alegações específicas sobre cursos/instituições, conferir atos e documentos efetivamente aplicáveis à oferta consultada. Não descrever os cursos internacionais da Enber como diplomas brasileiros já reconhecidos pelo MEC.
+- Referências oficiais: https://www.gov.br/mec/pt-br/politica-regulacao-supervisao-educacao-superior/cadastro-nacional-de-cursos-e-ies , https://portal.mec.gov.br/sistec-inicial/ , https://acervoportal.mec.gov.br/cursos-da-ept/formacao-inicial-e-continuada-ou-qualificacao-profissional , https://portaleduca.educacao.go.gov.br/suporte_ti/atos-legais-parametros/ .
