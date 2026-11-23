@@ -14,7 +14,7 @@ const BOLSAS_CFG = Object.freeze({
 const BOLSAS_HEADERS = [
   "Criado em", "Protocolo", "Request ID", "Status comercial",
   "Nome", "WhatsApp", "E-mail", "Cidade", "UF", "Para quem",
-  "Nível", "Áreas de interesse", "Curso desejado", "Outra opção de curso",
+  "Nível", "Curso ou área de interesse", "Outra opção de curso ou área",
   "Modalidade", "Solicitação", "Aceite atendimento", "Aceite marketing",
   "Origem", "URL da página", "utm_source", "utm_medium",
   "utm_campaign", "utm_content", "utm_term"
@@ -46,12 +46,11 @@ function doPost(e) {
     const beneficiary = limpar_(p.beneficiary, 80);
     const mode = limpar_(p.mode, 60);
     const intent = limpar_(p.intent, 100);
-    const areas = limpar_(p.areasJoined, 400);
     const consent = p.consent === "on" || p.consent === "true";
 
     if (!/^[a-f0-9-]{32,36}$/i.test(requestId) || name.length < 2 ||
         !/^\d{10,11}$/.test(phone) || !city || !/^[A-Z]{2}$/.test(uf) ||
-        !level || !beneficiary || !mode || !intent || !areas || !consent) {
+        !level || !beneficiary || !mode || !intent || !consent) {
       throw new Error("Dados obrigatórios inválidos.");
     }
 
@@ -73,7 +72,7 @@ function doPost(e) {
       const row = [
         date, protocol, requestId, "Novo",
         name, phone, limpar_(p.email,140), city, uf, beneficiary,
-        level, areas, limpar_(p.course1,110), limpar_(p.course2,110),
+        level, limpar_(p.course1,110), limpar_(p.course2,110),
         mode, intent, true, p.marketing === "on" || p.marketing === "true",
         limpar_(p.source,100), limpar_(p.pageUrl,600),
         limpar_(p.utm_source,120), limpar_(p.utm_medium,120),
