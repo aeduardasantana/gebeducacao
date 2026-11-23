@@ -27,9 +27,9 @@
 ## Teste obrigatório antes de divulgar
 
 1. Abrir a página em janela anônima, no celular e no computador.
-2. Indicar curso ou área no campo livre (opcional), testar também o envio sem curso informado, incluir uma segunda opção quando desejada, escolher modalidade, preencher cidade/UF e contato real de teste.
+2. Verificar se **Sem preferência** é a primeira modalidade e já aparece selecionada. Indicar curso/área no campo livre (opcional), testar também sem curso, incluir segunda opção quando desejada, **marcar e desmarcar** a opção 'Quero consultar bolsas de estudo disponíveis', preencher cidade/UF e um contato real de teste.
 3. Enviar. Verificar se uma linha surgiu em `LEADS_BOLSAS_LP` com o protocolo e todos os campos, incluindo `source` e UTM.
-4. Confirmar se o WhatsApp abre **depois** do registro, com protocolo, nome, cidade/UF, nível, curso/área informado quando houver, segunda opção quando houver e modalidade.
+4. Confirmar se o WhatsApp abre **depois** do registro, com protocolo, nome, cidade/UF, nível, curso/área informado quando houver, segunda opção quando houver, modalidade e a marcação de consulta de bolsas.
 5. Repetir envio com o mesmo requestId se houver erro de conexão: o script evita linhas duplicadas por ID.
 6. Conferir que a planilha privada permanece **não compartilhada publicamente** (somente o Apps Script é público).
 7. Verificar os dados de teste e removê-los ao final, se adequado.
@@ -48,3 +48,5 @@
 ## Atualização futura do Apps Script
 
 Após modificar o código, use **Implantar → Gerenciar implantações → Editar → Nova versão → Implantar** para atualizar uma implantação existente. Em geral, assim é possível manter a mesma URL do web app.
+
+- A consulta de bolsas agora é uma única caixa de seleção **opcional**. O campo da planilha registra `Sim` quando marcado e `Não` quando desmarcado. Se a planilha já tiver sido preparada com cabeçalhos antigos, confira o nome da coluna correspondente antes de usar a nova versão; não renomeie colunas de produção sem revisão.
