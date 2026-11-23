@@ -240,3 +240,125 @@ html { scroll-padding-top: 82px; }
 .lp-footer address { display:flex; flex-direction:column; gap:3px; font-style:normal; line-height:1.5; color:#bcb7af; }
 .lp-footer address b { color:#f0e4d1; font-size:.81rem; margin-bottom:2px; }
 .lp-footer address span { display:block; }
+
+
+/* LP Bolsas | revisão de layout auditada no PDF 22/11/2026
+   Hierarquia editorial, fotografia separada da leitura, etapas compactas e mobile-first.
+   As regras abaixo prevalecem sobre as versões anteriores sem afetar o CSS institucional. */
+
+/* A oferta e o formulário lideram a dobra inicial. A foto não concorre com a tipografia. */
+.lp-hero { padding:clamp(48px,5.8vw,82px) 0 clamp(52px,6vw,80px); background:radial-gradient(ellipse at 16% 0%,rgba(191,145,63,.14),transparent 42%),#0e0e0e; }
+.lp-hero-grid { grid-template-columns:minmax(0,1.02fr) minmax(380px,.98fr); column-gap:clamp(30px,4.8vw,68px); align-items:start; }
+.lp-hero-copy { display:flex; flex-direction:column; isolation:auto; padding-top:9px; min-width:0; }
+.lp-hero-copy > .lp-eyebrow { order:1; margin-bottom:20px; }
+.lp-hero-copy > h1 { order:2; max-width:570px; margin:0 0 26px; font-size:clamp(2.55rem,4.25vw,4.65rem); line-height:1.08; letter-spacing:-.052em; text-wrap:balance; }
+.lp-hero-copy > .lp-offer { order:3; border-top:0; padding:0 0 23px; margin:0 0 23px; border-bottom:1px solid rgba(255,255,255,.22); gap:11px; }
+.lp-hero-copy .lp-offer strong { font-size:clamp(2.6rem,3.6vw,3.55rem); }
+.lp-hero-copy > .lp-subtitle { order:4; margin:0 0 10px; font-size:1.03rem; line-height:1.72; max-width:570px; }
+.lp-hero-photo { order:5; position:relative; z-index:0; inset:auto; top:auto; right:auto; width:100%; height:clamp(176px,20vw,228px); margin:18px 0 19px; border-radius:12px; overflow:hidden; opacity:1; border:1px solid rgba(216,180,108,.18); box-shadow:0 12px 32px rgba(0,0,0,.12); }
+.lp-hero-photo img { display:block; width:100%; height:100%; object-fit:cover; object-position:center 43%; filter:contrast(1.01) saturate(.82); }
+.lp-hero-photo::after { background:linear-gradient(0deg,rgba(8,8,8,.20),transparent 48%); }
+.lp-photo-outline { display:none; }
+.lp-hero-copy > .lp-hero-notes { order:6; display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:4px 0 0; }
+.lp-hero-notes > span { display:inline-flex; align-items:center; border:1px solid rgba(214,175,106,.22); border-radius:30px; background:rgba(255,255,255,.035); padding:7px 12px; font-size:.74rem; line-height:1.5; }
+.lp-hero-notes b { border:0; width:auto; height:auto; margin-right:8px; font-size:.85rem; }
+.lp-hero-copy > .lp-disclaimer { order:7; margin:15px 0 0; max-width:560px; color:rgba(255,255,255,.62); font-size:.73rem; }
+.lp-hero-copy > .lp-mobile-photo { display:none; }
+.lp-hero-copy > .lp-mobile-cta { display:none; }
+
+/* Formulário sem ruído visual, com controles acessíveis e proporções estáveis. */
+.lp-form-card { margin:0; padding:clamp(24px,2.5vw,34px); border-radius:14px; background:#fbfaf7; border:1px solid #e6ddd0; box-shadow:0 22px 68px rgba(0,0,0,.24); }
+.lp-form-card-top { align-items:center; margin-bottom:21px; padding-bottom:17px; }
+.lp-form-steps { margin-bottom:24px; }
+.lp-form-steps strong { font-size:1.35rem; }
+.lp-field { gap:8px; margin-bottom:16px; }
+.lp-field select,.lp-field input { min-height:48px; font-size:.93rem; }
+.lp-text-btn { margin:-5px 0 20px; }
+.lp-consultation-choice { margin:19px 0 23px; padding:13px 14px; background:#f2eee5; border-radius:8px; }
+.lp-consultation-choice span { font-size:.8rem; font-weight:600; }
+.lp-primary-btn { min-height:54px; padding:14px 17px; }
+.lp-form-card .lp-status:empty { margin:0; min-height:0; }
+
+/* Fluxo em três passos: ícones vetoriais pequenos e consistentes, não pictogramas gigantes. */
+.lp-section { padding:clamp(60px,6.5vw,88px) 0; }
+.lp-section h2 { font-size:clamp(2rem,3.2vw,3.05rem); max-width:790px; text-wrap:balance; }
+.lp-three-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:32px; border:0; }
+.lp-three-grid article { min-width:0; min-height:238px; display:grid; grid-template-columns:1fr auto; grid-template-rows:auto auto 1fr; align-content:start; padding:27px 27px 28px; border:1px solid #ded6c6; border-radius:12px; background:#fffdfa; box-shadow:0 10px 24px rgba(38,27,15,.032); }
+.lp-step-symbol { grid-area:1/1; justify-content:start; margin:0; min-height:44px; height:44px; }
+.lp-three-grid .lp-step-symbol svg { display:block !important; width:42px !important; height:42px !important; max-width:42px !important; max-height:42px !important; min-width:42px; min-height:42px; flex:none; fill:none !important; stroke:#a67935 !important; stroke-width:2.2px; }
+.lp-three-grid article > span { grid-area:1/2; margin:0; align-self:center; color:#a67935; font-size:.76rem; letter-spacing:.13em; }
+.lp-three-grid article h3 { grid-area:2/1/3/3; font-size:1.15rem; margin:23px 0 10px; line-height:1.32; }
+.lp-three-grid article p { grid-area:3/1/4/3; line-height:1.7; max-width:35ch; font-size:.86rem; }
+
+/* A seção de certificação fica mais leve; o painel acadêmico permanece como contraste. */
+.lp-why { background:#ede9e1; color:#1b1915; }
+.lp-why-grid { grid-template-columns:minmax(0,1.1fr) minmax(330px,.9fr); gap:clamp(40px,5vw,75px); }
+.lp-why h2 { color:#171717; font-size:clamp(2rem,3.2vw,3.2rem); line-height:1.16; }
+.lp-why p { color:#5e584d; }
+.lp-why .lp-eyebrow { color:#956e30; }
+.lp-why-callout { color:#f7f2e8; background:#191715; border:1px solid #3f382d; border-radius:14px; padding:28px; box-shadow:0 20px 42px rgba(33,25,13,.09); }
+.lp-why-callout p { color:#dfd8cc; }
+.lp-academic-art { width:calc(100% + 56px); margin:-28px -28px 23px; border-radius:13px 13px 0 0; border-bottom-color:#4b402f; }
+.lp-why-callout strong { color:#e0b56a; }
+.lp-why-callout a { color:#e5c087; }
+
+/* FAQ navegável com melhor legibilidade e menor altura total. */
+.lp-faq { background:#faf8f3; }
+.lp-faq-grid { grid-template-columns:minmax(270px,.8fr) minmax(0,1.2fr); gap:clamp(38px,6vw,83px); align-items:start; }
+.lp-faq-items { border-top:1px solid #cfc7b9; }
+.lp-faq summary { font-size:.95rem; padding:19px 33px 19px 0; }
+.lp-faq summary::after { top:13px; color:#98703b; }
+.lp-faq details p { margin:0 0 22px; line-height:1.72; }
+.lp-closer { padding:clamp(62px,7vw,88px) 0; }
+
+/* Tablet: manter os dois painéis sem quebra ou compressão dos campos. */
+@media(max-width:1040px) and (min-width:761px){
+ .lp-hero-grid { grid-template-columns:minmax(0,1fr) minmax(340px,1fr); gap:28px; }
+ .lp-hero-copy > h1 { font-size:clamp(2.25rem,4vw,3.05rem); }
+ .lp-hero-photo { height:170px; }
+ .lp-hero-notes > span { font-size:.7rem; padding:6px 9px; }
+ .lp-why-grid { grid-template-columns:1fr 1fr; }
+ .lp-three-grid article { padding:22px; }
+}
+/* Smartphone: imagem visível, benefício antes do formulário e CTA de atalho. */
+@media(max-width:760px){
+ .lp-hero { padding:34px 0 52px; }
+ .lp-hero-grid,.lp-why-grid,.lp-faq-grid { grid-template-columns:1fr; gap:26px; }
+ .lp-hero-copy { padding:0; }
+ .lp-hero-copy > .lp-eyebrow { margin-bottom:15px; }
+ .lp-hero-copy > h1 { margin:0 0 16px; font-size:clamp(2.2rem,8vw,3.45rem); }
+ .lp-hero-photo { display:none; }
+ .lp-hero-copy > .lp-mobile-photo { display:block; order:3; width:100%; margin:0 0 20px; border-radius:10px; }
+ .lp-mobile-photo img { width:100%; aspect-ratio:16/8; object-fit:cover; }
+ .lp-hero-copy > .lp-offer { order:4; padding:0 0 17px; margin:0 0 16px; }
+ .lp-hero-copy .lp-offer strong { font-size:clamp(2.5rem,8vw,3.2rem); }
+ .lp-hero-copy > .lp-subtitle { order:5; margin:0 0 15px; font-size:.98rem; }
+ .lp-hero-copy > .lp-mobile-cta { display:inline-flex; order:6; align-self:stretch; justify-content:center; background:#bf913f; border:1px solid #cba052; border-radius:8px; color:#13110e; font-size:.89rem; padding:15px 18px; margin:0 0 16px; }
+ .lp-hero-copy > .lp-hero-notes { order:7; }
+ .lp-hero-notes > span { font-size:.69rem; }
+ .lp-hero-copy > .lp-disclaimer { order:8; margin:12px 0 0; }
+ .lp-form-card { padding:24px 19px; border-radius:12px; }
+ .lp-three-grid { grid-template-columns:1fr; gap:13px; margin-top:26px; }
+ .lp-three-grid article { min-height:0; padding:22px; }
+ .lp-three-grid article h3 { margin-top:14px; }
+ .lp-why-grid,.lp-faq-grid { gap:32px; }
+ .lp-why-callout { padding:20px; }
+ .lp-academic-art { width:calc(100% + 40px); margin:-20px -20px 20px; }
+}
+@media(max-width:440px){
+ .lp-hero-copy > h1 { font-size:clamp(2.12rem,9vw,2.6rem); }
+ .lp-hero-notes { gap:6px; }
+ .lp-hero-notes > span { font-size:.67rem; }
+ .lp-form-card { padding:21px 16px; }
+ .lp-form-card-top { flex-wrap:wrap; }
+ .lp-form-card-top strong { text-align:left; }
+}
+@media print {
+ .skip-link { display:none !important; }
+ .lp-header { position:static; }
+ .lp-three-grid article,.lp-why-callout,.lp-form-card { break-inside:avoid; page-break-inside:avoid; }
+ .lp-three-grid { gap:10px; }
+ .lp-three-grid article { box-shadow:none; }
+ .lp-hero-photo { max-height:165px; }
+ .lp-hero .lp-mobile-photo { display:none !important; }
+}
