@@ -15,7 +15,7 @@ const BOLSAS_HEADERS = [
   "Criado em", "Protocolo", "Request ID", "Status comercial",
   "Nome", "WhatsApp", "E-mail", "Cidade", "UF", "Para quem",
   "Nível", "Curso ou área de interesse", "Outra opção de curso ou área",
-  "Modalidade", "Solicitação", "Aceite atendimento", "Aceite marketing",
+  "Modalidade", "Consulta de bolsas de estudo disponíveis", "Aceite atendimento", "Aceite marketing",
   "Origem", "URL da página", "utm_source", "utm_medium",
   "utm_campaign", "utm_content", "utm_term"
 ];
@@ -45,12 +45,12 @@ function doPost(e) {
     const level = limpar_(p.level, 90);
     const beneficiary = limpar_(p.beneficiary, 80);
     const mode = limpar_(p.mode, 60);
-    const intent = limpar_(p.intent, 100);
+    const scholarshipConsultation = p.scholarshipConsultation === "sim";
     const consent = p.consent === "on" || p.consent === "true";
 
     if (!/^[a-f0-9-]{32,36}$/i.test(requestId) || name.length < 2 ||
         !/^\d{10,11}$/.test(phone) || !city || !/^[A-Z]{2}$/.test(uf) ||
-        !level || !beneficiary || !mode || !intent || !consent) {
+        !level || !beneficiary || !mode || !consent) {
       throw new Error("Dados obrigatórios inválidos.");
     }
 
@@ -73,7 +73,7 @@ function doPost(e) {
         date, protocol, requestId, "Novo",
         name, phone, limpar_(p.email,140), city, uf, beneficiary,
         level, limpar_(p.course1,110), limpar_(p.course2,110),
-        mode, intent, true, p.marketing === "on" || p.marketing === "true",
+        mode, scholarshipConsultation ? "Sim" : "Não", true, p.marketing === "on" || p.marketing === "true",
         limpar_(p.source,100), limpar_(p.pageUrl,600),
         limpar_(p.utm_source,120), limpar_(p.utm_medium,120),
         limpar_(p.utm_campaign,150), limpar_(p.utm_content,150),
