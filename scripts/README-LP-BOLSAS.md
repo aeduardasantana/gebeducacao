@@ -27,9 +27,9 @@
 ## Teste obrigatório antes de divulgar
 
 1. Abrir a página em janela anônima, no celular e no computador.
-2. Selecionar mais de uma área, indicar dois cursos opcionais, escolher modalidade, preencher cidade/UF e contato real de teste.
+2. Indicar curso ou área no campo livre (opcional), testar também o envio sem curso informado, incluir uma segunda opção quando desejada, escolher modalidade, preencher cidade/UF e contato real de teste.
 3. Enviar. Verificar se uma linha surgiu em `LEADS_BOLSAS_LP` com o protocolo e todos os campos, incluindo `source` e UTM.
-4. Confirmar se o WhatsApp abre **depois** do registro, com protocolo, nome, cidade/UF, nível, áreas, cursos e modalidade.
+4. Confirmar se o WhatsApp abre **depois** do registro, com protocolo, nome, cidade/UF, nível, curso/área informado quando houver, segunda opção quando houver e modalidade.
 5. Repetir envio com o mesmo requestId se houver erro de conexão: o script evita linhas duplicadas por ID.
 6. Conferir que a planilha privada permanece **não compartilhada publicamente** (somente o Apps Script é público).
 7. Verificar os dados de teste e removê-los ao final, se adequado.
@@ -39,7 +39,7 @@
 - Este código ainda não foi implantado no Google Apps Script: copiar, configurar, implantar e testar são passos necessários.
 - O Apps Script original do catálogo **não** deve ser substituído ou alterado.
 - Esta primeira integração cria apenas uma aba de entrada no arquivo do CRM. **Não escreve automaticamente nas abas PESSOAS, VINCULOS ou CRM_TRIAGEM**; essa transformação exige mapear as regras do CRM vigente.
-- O formulário não pergunta se a pessoa é maior de 18 anos.
+- O formulário não pergunta se a pessoa é maior de 18 anos.\n- Não há caixa de categorias genéricas nem área obrigatória: o interessado pode escrever livremente o nome do curso ou da área, informar uma segunda preferência ou continuar sem definir um curso.
 - A opção `Para meu filho ou dependente` não coleta dados da criança nesta etapa.
 - O percentual `até 83%` precisa refletir oportunidades reais e condições auditáveis. A página não garante benefício nem matrícula.
 - Se o script falhar, a LP mantém os dados na tela e não redireciona prematuramente ao WhatsApp.
