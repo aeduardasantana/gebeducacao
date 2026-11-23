@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+<title id="title">Trajetória de formação</title><desc id="desc">Ilustração editorial de livros, diploma e um capelo acadêmico, conectados por linhas douradas.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#181715"/><stop offset="1" stop-color="#0c0c0c"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e5c68b"/><stop offset="1" stop-color="#a8782f"/></linearGradient>
+  <pattern id="grid" width="52" height="52" patternUnits="userSpaceOnUse"><path d="M52 0H0V52" fill="none" stroke="#b99450" stroke-opacity=".08"/></pattern>
+  <filter id="glow"><feGaussianBlur stdDeviation="32"/></filter>
+</defs>
+<rect width="1200" height="620" fill="url(#bg)"/>
+<rect width="1200" height="620" fill="url(#grid)"/>
+<circle cx="950" cy="60" r="180" fill="#a87a38" opacity=".12" filter="url(#glow)"/>
+<circle cx="214" cy="496" r="200" fill="#d2a960" opacity=".07" filter="url(#glow)"/>
+<g stroke="url(#gold)" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M100 420C290 320 370 530 558 382S885 165 1110 208" stroke-width="2" stroke-dasharray="6 14" opacity=".64"/>
+<path d="M97 452L97 218M97 218L180 134" opacity=".24" stroke-width="2"/>
+<path d="M1105 352v130h-130" opacity=".24" stroke-width="2"/>
+</g>
+<g transform="translate(122 150)">
+  <rect x="0" y="0" width="270" height="344" rx="3" fill="#efe9de"/>
+  <path d="M24 20h222v302H24z" stroke="#baab90" fill="none"/>
+  <path d="M38 35h194v271H38z" stroke="#d4c7b1" fill="none"/>
+  <path d="M65 86h140M65 109h140M65 132h102" stroke="#b39b75" stroke-width="4" opacity=".5"/>
+  <g transform="translate(54 186)" stroke="#bd934b" fill="none" stroke-width="3">
+    <path d="M18 8c25-14 47-13 70-2v75c-24-14-47-14-70 0z"/>
+    <path d="M88 6c24-12 48-12 70 2v73c-24-14-46-14-70 0z"/>
+    <path d="M88 6v75M34 31c16-6 25-5 40-1M103 29c15-5 25-4 39 1"/>
+  </g>
+  <path d="M234 0l36 36H234z" fill="#c9b68f"/>
+</g>
+<g transform="translate(440 202)">
+  <rect x="4" y="4" width="308" height="263" fill="#101010" stroke="#a17c3d" opacity=".93"/>
+  <path d="M36 52h246M36 208h246" stroke="#8d6c35" stroke-width="2" opacity=".5"/>
+  <g fill="none" stroke="url(#gold)" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M158 65l115 45-115 46L43 110z" stroke-width="7"/>
+  <path d="M88 133v48c43 32 97 32 140 0v-48" stroke-width="7"/>
+  <path d="M273 110v75m0 0c-12 9-12 18 0 27 12-9 12-18 0-27z" stroke-width="5"/>
+  </g>
+</g>
+<g transform="translate(820 144)">
+  <rect width="230" height="304" fill="#c7a36a" transform="rotate(8 115 152)" opacity=".2"/>
+  <rect x="11" y="20" width="230" height="304" fill="#f5eee0" stroke="#b99c69" stroke-width="1" transform="rotate(-4 115 152)"/>
+  <g transform="rotate(-4 115 152)" fill="none" stroke="#987c4d" stroke-width="3">
+  <path d="M50 73h157M50 102h157M50 132h157" opacity=".5"/>
+  <circle cx="130" cy="205" r="47" stroke-width="2"/>
+  <circle cx="130" cy="205" r="32" stroke-width="2"/>
+  <path d="M114 242l-7 66 25-15 25 15-7-66" stroke="#aa7930" fill="#bb914b" fill-opacity=".4"/>
+  </g>
+</g>
+<circle cx="396" cy="424" r="9" fill="#d7ae67"/><circle cx="785" cy="302" r="9" fill="#d7ae67"/>
+<path d="M51 61h180M51 77h86M1097 548h54" stroke="#d3aa62" stroke-width="2" opacity=".46"/>
+</svg>
