@@ -21,8 +21,8 @@
    - **Executar como:** Eu (proprietário do script).
    - **Quem tem acesso:** Qualquer pessoa.
    - Autorize a implantação e copie a URL terminada em `/exec`.
-7. No arquivo `bolsas/consultar/lp.js`, substitua a linha `const SCRIPT_URL = "";` pela URL recebida, entre aspas.
-8. Atualize o arquivo no repositório. Só então incorpore a branch ao site publicado.
+7. **Conexão realizada:** o arquivo `bolsas/consultar/lp.js` contém a URL `/exec` implantada em 22/11/2026. Não é necessário editá-la novamente.
+8. Execute o teste integral antes de incorporar a branch ao site publicado.
 
 ## Teste obrigatório antes de divulgar
 
@@ -36,14 +36,14 @@
 
 ## Observações importantes
 
-- Este código ainda não foi implantado no Google Apps Script: copiar, configurar, implantar e testar são passos necessários.
+- O proprietário implantou o Apps Script e confirmou que o `/exec` apresenta a mensagem "GEB Educação — LP Bolsas API ativa". O código da LP já utiliza essa URL, mas **o envio POST e a confirmação de protocolo ainda não foram homologados**.
 - O Apps Script original do catálogo **não** deve ser substituído ou alterado.
 - Esta primeira integração cria apenas uma aba de entrada no arquivo do CRM. **Não escreve automaticamente nas abas PESSOAS, VINCULOS ou CRM_TRIAGEM**; essa transformação exige mapear as regras do CRM vigente.
 - O formulário não pergunta se a pessoa é maior de 18 anos.\n- Não há caixa de categorias genéricas nem área obrigatória: o interessado pode escrever livremente o nome do curso ou da área, informar uma segunda preferência ou continuar sem definir um curso.
 - A opção `Para meu filho ou dependente` não coleta dados da criança nesta etapa.
 - O percentual `até 83%` precisa refletir oportunidades reais e condições auditáveis. A página não garante benefício nem matrícula.
 - Se o script falhar, a LP mantém os dados na tela e não redireciona prematuramente ao WhatsApp.
-- Não publique a LP com `SCRIPT_URL` vazio.
+- A URL `SCRIPT_URL` já está preenchida. **Não publicar sem homologação funcional do envio e do redirecionamento.**
 
 ## Atualização futura do Apps Script
 
@@ -85,4 +85,11 @@ Após modificar o código, use **Implantar → Gerenciar implantações → Edit
 - Alteração de `lp.css` e `lp.js` com parâmetro de versão `20261123-layout2` para reduzir risco de cache de CSS desatualizado.
 - Inspeção estática: chaves CSS equilibradas; três ícones SVG com atributos visuais explícitos; JavaScript sintaticamente válido.
 - Verificação ainda necessária: renderizar página real em navegador desktop e mobile (360, 390, 768, 1024 e 1440 px), testar os dois passos do formulário e confirmar se a janela externa de privacidade cobre alguma interação.
-- Não publicar enquanto o endpoint `SCRIPT_URL` permanecer vazio.
+- A URL do endpoint foi configurada; a publicação depende agora do teste funcional completo.
+
+## Conexão do Apps Script — 22/11/2026
+- URL informada pelo proprietário e adicionada a `bolsas/consultar/lp.js`: `https://script.google.com/macros/s/AKfycbz4_dlHcAZhz12hvSLIuC6xRhBu7SF_Wuh4W5oZrmkAlZXYBj423NwbObx1BbxisVq6/exec`.
+- Verificação em tempo real do CRM: aba `LEADS_BOLSAS_LP` existe com as 24 colunas previstas, criada pelo comando `configurarBolsas` do Apps Script.
+- O usuário confirmou a mensagem GET da API ativa; o teste de HTTP externo independente não foi possível a partir da sessão.
+- A versão da referência `lp.js` no HTML foi alterada para `20261123-appscript1` para minimizar cache desatualizado.
+- **Pendente**: teste real enviando formulário na página do ambiente acessível, conferindo imediatamente uma nova linha na aba e o protocolo enviado ao WhatsApp. Registrar o resultado da homologação e somente depois considerar publicação/merge.
