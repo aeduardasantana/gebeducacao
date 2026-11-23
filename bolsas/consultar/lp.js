@@ -11,6 +11,12 @@
     img.addEventListener("error", showFallback, {once:true});
     if (img.complete && !img.naturalWidth) showFallback();
   });
+  // Em falhas de rede, mantém ilustração acadêmica local sem exibir ícone de imagem quebrada.
+  document.querySelectorAll(".lp-hero-photo img, .lp-mobile-photo img").forEach(img => {
+    const fallbackImage = () => img.classList.add("is-image-unavailable");
+    img.addEventListener("error", fallbackImage, {once:true});
+    if (img.complete && !img.naturalWidth) fallbackImage();
+  });
   const form = document.getElementById("lp-lead-form");
   const status = document.getElementById("lp-status");
   const stepLabel = document.getElementById("lp-step-label");
