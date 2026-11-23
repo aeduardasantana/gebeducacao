@@ -208,3 +208,30 @@ html { scroll-padding-top: 82px; }
  .lp-brand-fallback small { letter-spacing:.08em; font-size:.53rem; }
  .lp-mobile-photo figcaption { font-size:.54rem; }
 }
+
+
+/* Refinamento UX: foco claro, conforto de preenchimento e fallback de imagem */
+.lp-header { border-bottom:1px solid rgba(207,167,98,.17); }
+.lp-form-card { border:1px solid #e3dccf; border-radius:12px; background:#fbf9f5; box-shadow:0 26px 76px rgba(0,0,0,.28); }
+.lp-form-card-top { align-items:center; }
+.lp-field { gap:8px; }
+.lp-field select,.lp-field input { border-color:#bdb8ad; border-radius:7px; background-color:#fff; transition:border-color .18s ease,box-shadow .18s ease; }
+.lp-field select:hover,.lp-field input:hover { border-color:#9b8c72; }
+.lp-field select:focus,.lp-field input:focus { border-color:#a97a34; box-shadow:0 0 0 3px rgba(191,145,63,.13); }
+.lp-primary-btn { border-radius:7px; box-shadow:0 4px 12px rgba(143,104,36,.12); transition:background .18s ease,transform .18s ease; }
+.lp-primary-btn:hover { transform:translateY(-1px); }
+.lp-back-btn { border-radius:7px; }
+.lp-form-card-top strong { font-size:.71rem; }
+.lp-step-bars i { height:5px; border-radius:4px; }
+.lp-hero-photo { background:#1c1a15 url("./trajetoria-academica.svg") center / cover no-repeat; }
+.lp-mobile-photo { background:#1c1a15 url("./trajetoria-academica.svg") center / cover no-repeat; }
+.lp-hero-photo img.is-image-unavailable,.lp-mobile-photo img.is-image-unavailable { display:none; }
+.lp-step-symbol svg { transition:transform .2s ease; }
+.lp-three-grid article:hover .lp-step-symbol svg { transform:translateY(-3px); }
+@media(max-width:760px) {
+ .lp-form-card { border-radius:10px; }
+ .lp-hero-photo { display:none; }
+ .lp-mobile-photo { border-radius:8px; }
+ .lp-form-card-top { flex-wrap:wrap; }
+ .lp-form-card-top strong { text-align:left; }
+}
