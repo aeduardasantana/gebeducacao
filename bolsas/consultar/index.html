@@ -48,24 +48,9 @@
           <div class="lp-step" data-step="1">
             <label class="lp-field"><span>Para quem procura a formação? <b>*</b></span><select name="beneficiary" required><option value="">Selecione</option><option>Para mim</option><option>Para meu filho ou dependente</option><option>Para outra pessoa</option></select></label>
             <label class="lp-field"><span>Nível de formação <b>*</b></span><select name="level" required><option value="">Selecione o nível</option><option>Ainda não sei</option><option>Profissionalizante</option><option>EJA</option><option>EJA + Técnico</option><option>Técnico</option><option>Técnico por Competência</option><option>Sequencial</option><option>Graduação</option><option>Pós-graduação</option><option>MBA</option><option>Mestrado Acadêmico</option><option>Mestrado Profissional</option><option>Doutorado</option><option>Pós-Doutorado</option></select></label>
-            <fieldset class="lp-fieldset" id="lp-areas"><legend>Quais áreas despertam seu interesse? <b>*</b><small>Selecione até 3 opções.</small></legend>
-              <div class="lp-choices">
-                <label><input type="checkbox" name="areas" value="Educação"><span>Educação</span></label>
-                <label><input type="checkbox" name="areas" value="Saúde"><span>Saúde</span></label>
-                <label><input type="checkbox" name="areas" value="Direito"><span>Direito</span></label>
-                <label><input type="checkbox" name="areas" value="Tecnologia"><span>Tecnologia</span></label>
-                <label><input type="checkbox" name="areas" value="Engenharia e Indústria"><span>Engenharia e Indústria</span></label>
-                <label><input type="checkbox" name="areas" value="Gestão e Negócios"><span>Gestão e Negócios</span></label>
-                <label><input type="checkbox" name="areas" value="Meio Ambiente e Agro"><span>Meio Ambiente e Agro</span></label>
-                <label><input type="checkbox" name="areas" value="Comunicação, Artes e Cultura"><span>Comunicação, Artes e Cultura</span></label>
-                <label><input type="checkbox" name="areas" value="Serviços"><span>Serviços</span></label>
-                <label><input type="checkbox" name="areas" value="Outras áreas"><span>Outras áreas</span></label>
-                <label><input type="checkbox" name="areas" value="Ainda não sei"><span>Ainda não sei</span></label>
-              </div>
-            </fieldset>
-            <label class="lp-field"><span>Tem algum curso em mente? <small>Opcional</small></span><input type="text" name="course1" maxlength="110" placeholder="Digite o nome, se souber"></label>
-            <div id="lp-extra-course-wrap" hidden><label class="lp-field"><span>Outra opção de curso <small>Opcional</small></span><input type="text" name="course2" maxlength="110" placeholder="Segunda opção"></label></div>
-            <button type="button" class="lp-text-btn" id="lp-add-course">+ Adicionar outra opção de curso</button>
+            <label class="lp-field"><span>Qual curso ou área você deseja estudar? <small>Opcional</small></span><input type="text" name="course1" maxlength="110" placeholder="Ex.: curso ou área de interesse"></label>
+            <div id="lp-extra-course-wrap" hidden><label class="lp-field"><span>Outra opção de curso ou área <small>Opcional</small></span><input type="text" name="course2" maxlength="110" placeholder="Outra formação ou área de interesse"></label></div>
+            <button type="button" class="lp-text-btn" id="lp-add-course">+ Informar outra opção de curso ou área</button>
             <label class="lp-field"><span>Modalidade de preferência <b>*</b></span><select name="mode" required><option value="">Selecione</option><option>EaD (online)</option><option>Presencial</option><option>Semipresencial</option><option>Sem preferência</option></select></label>
             <label class="lp-field"><span>O que você deseja consultar? <b>*</b></span><select name="intent" required><option value="">Selecione</option><option>Consultar bolsas disponíveis</option><option>Conhecer opções de formação e bolsas</option></select></label>
             <button class="lp-primary-btn" type="button" id="lp-next">Continuar <span aria-hidden="true">→</span></button>
@@ -100,15 +85,15 @@
   </section>
   <section id="como-funciona" class="lp-section lp-how"><div class="container"><p class="lp-eyebrow dark">UMA JORNADA SIMPLES</p><h2>Você informa seu interesse. Nós ajudamos a encontrar possibilidades.</h2>
     <div class="lp-three-grid">
-      <article><span>01</span><h3>Conte o que procura</h3><p>Escolha sua área de interesse, o nível de formação e a modalidade desejada. Não precisa saber o nome exato do curso.</p></article>
+      <article><span>01</span><h3>Conte o que procura</h3><p>Informe o nível de formação, a modalidade e, se souber, o curso ou área que deseja estudar. Não é necessário indicar um curso específico.</p></article>
       <article><span>02</span><h3>Solicite a consulta</h3><p>Informe sua cidade, estado e contato. O atendimento verificará as oportunidades e condições pertinentes.</p></article>
       <article><span>03</span><h3>Converse com o GEB</h3><p>Seu interesse é encaminhado ao WhatsApp, com um protocolo para facilitar a continuidade do atendimento.</p></article>
     </div></div></section>
   <section class="lp-section lp-why"><div class="container lp-why-grid"><div><p class="lp-eyebrow">FORMAÇÃO PARA DIFERENTES MOMENTOS</p><h2>Mais caminhos para estudar, sem escolher às cegas.</h2><p>O GEB Educação reúne oportunidades de qualificação, ensino técnico e formação acadêmica, com instituições e condições próprias de cada oferta. Nosso papel é organizar as possibilidades e apoiar sua consulta.</p></div><div class="lp-why-callout"><strong>Importante saber</strong><p>Consultar uma bolsa não garante desconto, vaga ou matrícula. A instituição responsável pela formação, os valores e as regras aplicáveis serão informados antes da contratação.</p><a href="../../instituicoes/">Conheça as instituições de ensino ↗</a></div></div></section>
   <section class="lp-section lp-faq" id="perguntas"><div class="container lp-faq-grid"><div><p class="lp-eyebrow dark">PERGUNTAS FREQUENTES</p><h2>Antes de solicitar, tire suas dúvidas.</h2><p>Transparência para decidir com segurança.</p></div><div class="lp-faq-items">
     <details><summary>O desconto de 83% é garantido?</summary><p>Não. Há oportunidades anunciadas com até 83% de desconto, mas o benefício efetivo depende da formação, instituição, modalidade, localidade e condições da oferta.</p></details>
-    <details><summary>Preciso saber exatamente qual curso quero?</summary><p>Não. Você pode indicar apenas suas áreas de interesse ou selecionar a opção “Ainda não sei”. O atendimento poderá ajudar a esclarecer possibilidades.</p></details>
-    <details><summary>Posso escolher mais de uma área ou curso?</summary><p>Sim. Você pode selecionar até três áreas e informar duas opções de cursos, se desejar. A indicação de um nome específico é opcional.</p></details>
+    <details><summary>Preciso saber exatamente qual curso quero?</summary><p>Não. O nome do curso ou da área é opcional. Você também pode escolher “Ainda não sei” no nível de formação e solicitar atendimento normalmente.</p></details>
+    <details><summary>Posso informar mais de uma opção de curso?</summary><p>Sim. Você pode escrever um curso ou área de interesse e, se desejar, adicionar uma segunda opção. Nenhum dos dois campos é obrigatório.</p></details>
     <details><summary>Existem cursos presenciais e online?</summary><p>As formações são oferecidas em diferentes modalidades conforme cada instituição e curso. A disponibilidade de EaD, presencial ou semipresencial será confirmada na consulta.</p></details>
     <details><summary>Posso solicitar informações para meu filho ou dependente?</summary><p>Sim. Informe que busca a formação para um filho ou dependente. Requisitos de idade, matrícula e autorização de responsável serão avaliados conforme a instituição e a formação escolhida.</p></details>
     <details><summary>Quem emite o diploma ou certificado?</summary><p>Depende do curso. O GEB Educação disponibiliza formações próprias e oportunidades vinculadas a instituições participantes. Antes da matrícula, serão apresentados os dados da instituição responsável e a natureza da certificação ou diploma.</p></details>
