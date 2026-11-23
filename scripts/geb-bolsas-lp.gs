@@ -5,7 +5,7 @@
  * Publicar como Aplicativo da Web: executar como proprietário / acesso Qualquer pessoa.
  */
 const BOLSAS_CFG = Object.freeze({
-  spreadsheetId: "1foaPkjykwJ0QVQgmy0BkSDI2eV39ywRTNYkB7MzgS9g",
+  spreadsheetId: PropertiesService.getScriptProperties().getProperty("BOLSAS_SHEET_ID") || "",
   tab: "LEADS_BOLSAS_LP",
   prefix: "GEB-BOL",
   timezone: "America/Sao_Paulo"
@@ -71,7 +71,7 @@ function doPost(e) {
         Utilities.formatDate(date,BOLSAS_CFG.timezone,"yyyyMMdd") + "-" +
         String(number).padStart(6,"0");
       const row = [
-        date, protocoloSeguro_(protocol), requestId, "Novo",
+        date, protocol, requestId, "Novo",
         name, phone, limpar_(p.email,140), city, uf, beneficiary,
         level, areas, limpar_(p.course1,110), limpar_(p.course2,110),
         mode, intent, true, p.marketing === "on" || p.marketing === "true",
@@ -130,6 +130,7 @@ function doGet(e) {
 }
 
 function bolsasSheet_() {
+  if (!BOLSAS_CFG.spreadsheetId) throw new Error("Configure a propriedade BOLSAS_SHEET_ID antes de executar.");
   const book = SpreadsheetApp.openById(BOLSAS_CFG.spreadsheetId);
   let sheet = book.getSheetByName(BOLSAS_CFG.tab);
   if (!sheet) sheet = book.insertSheet(BOLSAS_CFG.tab);
@@ -159,8 +160,6 @@ function seguroPlanilha_(value) {
   // Evita fórmulas inseridas por visitantes em células de texto.
   return /^[=+\-@]/.test(s) ? "'" + s : s;
 }
-
-function protocoloSeguro_(v) { return v; }
 
 function respostaPost_(message) {
   // O retorno do POST vai para iframe oculto; a confirmação é feita por doGet(status).
