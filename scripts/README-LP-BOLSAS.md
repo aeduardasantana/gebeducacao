@@ -50,3 +50,11 @@
 Após modificar o código, use **Implantar → Gerenciar implantações → Editar → Nova versão → Implantar** para atualizar uma implantação existente. Em geral, assim é possível manter a mesma URL do web app.
 
 - A consulta de bolsas agora é uma única caixa de seleção **opcional**. O campo da planilha registra `Sim` quando marcado e `Não` quando desmarcado. Se a planilha já tiver sido preparada com cabeçalhos antigos, confira o nome da coluna correspondente antes de usar a nova versão; não renomeie colunas de produção sem revisão.
+
+## Revisão visual — novembro/2026
+- Foto editorial de ambiente de estudo utilizada como referência visual da LP via CDN da Unsplash (imagem ilustrativa, sem vincular pessoas reais a matrícula ou bolsas GEB).
+- Ilustração vetorial acadêmica original em `bolsas/consultar/trajetoria-academica.svg`, também usada como fallback caso a foto não carregue.
+- Marca oficial segue referenciada por `/assets/geb-educacao-logo.webp`. Se houver falha de carregamento, a página exibe um wordmark tipográfico GEB Educação em vez de um ícone de imagem quebrada.
+- O conteúdo WebP retornado na inspeção do repositório apresentou divergência de tamanho no cabeçalho RIFF. Confirmar integridade do arquivo original publicado no navegador. Substituir o arquivo somente após obter uma cópia autêntica e íntegra da marca.
+- O banner “Privacidade e medição” visto em uma captura não consta no HTML nem no JavaScript desta LP. Verificar se é injetado pelo ambiente de hospedagem, tag manager, plugin ou camada de preview; não o ocultar por CSS sem revisar os requisitos de consentimento.
+- Verificar contraste, foco por teclado, carregamento de foto e SVG e legibilidade do formulário em larguras 360, 390, 768, 1024 e 1440 px antes da publicação.
