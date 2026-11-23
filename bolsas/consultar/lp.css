@@ -152,3 +152,59 @@ html { scroll-padding-top: 82px; }
  .lp-footer-grid>div:first-child { grid-column:auto; }
 }
 @media(prefers-reduced-motion:reduce) { * { scroll-behavior:auto !important; transition:none !important; } }
+
+/* Revisão editorial e acadêmica · estrutura visual LP Bolsas 2026-11 */
+.lp-brand { display:inline-flex; align-items:center; min-height:50px; text-decoration:none; gap:12px; flex:0 0 auto; }
+.lp-brand img { width:auto; max-width:170px; height:53px; max-height:53px; object-fit:contain; }
+.lp-brand-fallback { display:none; color:#fff; align-items:baseline; gap:9px; font-family:"Manrope",sans-serif; letter-spacing:.02em; white-space:nowrap; }
+.lp-brand-fallback strong { font-weight:800; font-size:1.55rem; }
+.lp-brand-fallback small { color:#c7a56e; font-weight:700; font-size:.73rem; letter-spacing:.16em; }
+.lp-brand.logo-fallback img { display:none; }
+.lp-brand.logo-fallback .lp-brand-fallback { display:inline-flex; }
+.lp-hero { overflow:hidden; position:relative; padding-top:62px; }
+.lp-hero-grid { position:relative; z-index:1; }
+.lp-hero-copy { position:relative; isolation:isolate; padding-top:23px; }
+.lp-hero-photo { position:absolute; z-index:-1; width:min(80%,485px); top:-62px; right:-34px; height:480px; overflow:hidden; margin:0; pointer-events:none; opacity:.9; }
+.lp-hero-photo img { width:100%; height:100%; object-fit:cover; object-position:53% 43%; display:block; filter:saturate(.75) contrast(1.08); }
+.lp-hero-photo::after { position:absolute; inset:0; content:""; background:linear-gradient(90deg,#0e0e0e 0%,rgba(14,14,14,.86) 22%,rgba(14,14,14,.32) 84%), linear-gradient(0deg,#0e0e0e 0%,rgba(14,14,14,.08) 80%); }
+.lp-photo-outline { position:absolute; inset:20px 20px auto auto; width:38%; height:65%; border-top:1px solid rgba(221,184,115,.48); border-right:1px solid rgba(221,184,115,.48); z-index:1; }
+.lp-hero-copy > .lp-eyebrow,.lp-hero-copy > h1,.lp-hero-copy > .lp-offer,.lp-hero-copy > .lp-subtitle,.lp-hero-copy > .lp-hero-notes,.lp-hero-copy > .lp-disclaimer { position:relative; z-index:1; }
+.lp-hero h1 { font-size:clamp(2.65rem,4.25vw,4.5rem); max-width:660px; margin-bottom:28px; text-wrap:balance; }
+.lp-hero .lp-eyebrow { max-width:500px; }
+.lp-offer { padding:22px 0; margin-bottom:20px; }
+.lp-mobile-photo { display:none; }
+.lp-three-grid article { position:relative; }
+.lp-step-symbol { display:flex; align-items:center; justify-content:flex-start; min-height:62px; margin-bottom:12px; }
+.lp-step-symbol svg { width:54px; height:54px; fill:none; stroke:#af8641; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
+.lp-three-grid article span { margin-bottom:24px; }
+.lp-why-callout { overflow:hidden; }
+.lp-academic-art { display:block; width:calc(100% + 64px); max-width:none; margin:-32px -32px 27px; height:auto; aspect-ratio:1200 / 620; object-fit:cover; border-bottom:1px solid #52432b; }
+.lp-faq summary { transition:color .18s ease; }
+.lp-faq summary:hover,.lp-faq summary:focus-visible { color:#9d7228; }
+.lp-footer-bottom a { color:#d2ae71; text-decoration:underline; text-underline-offset:2px; }
+@media (max-width:1000px) {
+ .lp-hero-photo { right:-16px; width:73%; height:410px; top:-45px; }
+ .lp-hero h1 { font-size:clamp(2.35rem,4.2vw,3.8rem); }
+}
+@media (max-width:760px) {
+ .lp-brand img { max-width:143px; height:48px; }
+ .lp-brand-fallback strong { font-size:1.3rem; }
+ .lp-brand-fallback small { font-size:.62rem; }
+ .lp-hero { padding-top:39px; }
+ .lp-hero-copy { padding-top:0; }
+ .lp-hero-photo { display:none; }
+ .lp-hero h1 { font-size:clamp(2.35rem,8vw,3.7rem); margin-bottom:22px; }
+ .lp-mobile-photo { position:relative; display:block; margin:0 0 26px; overflow:hidden; background:#25211c; border:1px solid rgba(215,169,84,.28); }
+ .lp-mobile-photo img { display:block; width:100%; aspect-ratio:16/8.5; object-fit:cover; object-position:center; }
+ .lp-mobile-photo::after { content:""; position:absolute; inset:30% 0 0; background:linear-gradient(0deg,rgba(5,5,5,.74),transparent); pointer-events:none; }
+ .lp-mobile-photo figcaption { position:absolute; bottom:14px; left:16px; font-size:.62rem; letter-spacing:.14em; font-weight:800; color:#f2dbb4; z-index:1; }
+ .lp-offer { margin-top:0; }
+ .lp-academic-art { max-height:260px; object-fit:cover; }
+}
+@media(max-width:460px){
+ .lp-brand img { max-width:124px; height:42px; }
+ .lp-brand-fallback { gap:5px; }
+ .lp-brand-fallback strong { font-size:1.18rem; }
+ .lp-brand-fallback small { letter-spacing:.08em; font-size:.53rem; }
+ .lp-mobile-photo figcaption { font-size:.54rem; }
+}
