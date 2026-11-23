@@ -73,3 +73,16 @@ Após modificar o código, use **Implantar → Gerenciar implantações → Edit
 - O FAQ esclarece, de forma distinta, EJA, cursos livres/profissionalizantes, técnicos, graduações brasileiras, especializações/MBA e diplomas estrangeiros. Não afirmar que certificado de curso livre equivale a diploma técnico, nem que diploma estrangeiro é automaticamente reconhecido no Brasil.
 - A identidade da entidade emissora e os atos documentais aplicáveis devem ficar disponíveis antes da matrícula, sem impor lista de marcas e parceiros na abertura da página.
 - Fontes oficiais consultadas para validação regulatória: Cadastro e-MEC (https://www.gov.br/mec/pt-br/politica-regulacao-supervisao-educacao-superior/cadastro-nacional-de-cursos-e-ies), Sistema SISTEC (https://portal.mec.gov.br/sistec-inicial/), FIC/Qualificação Profissional (https://acervoportal.mec.gov.br/cursos-da-ept/formacao-inicial-e-continuada-ou-qualificacao-profissional) e documentação escolar de sistemas de ensino (https://portal.mec.gov.br/setec-secretaria-de-educacao-profissional-e-tecnologica/30000-uncategorised/62851-homologacao-de-estudos-e-titulos).
+
+
+## Auditoria visual pelo PDF de 7 páginas — revisão de layout
+- Origem: exportação da LP de 22/11/2026 (7 páginas, impressão horizontal).
+- Página 1: foto da biblioteca se sobrepunha à headline e ao percentual; a fotografia passou a um bloco independente na coluna esquerda, abaixo da oferta/texto. Em telas pequenas, foto própria entre título e oferta.
+- Páginas 2 e 3: os pictogramas da jornada eram exibidos desproporcionalmente grandes e preenchidos em preto. Foram inseridas dimensões SVG de 48px e atributos de traço diretamente nos elementos; CSS limita a 42px. Os três passos passaram a cartões com conteúdo e espaçamento consistentes.
+- Página 4: a seção de certificação tinha fundo preto semelhante ao da abertura e do CTA final; passou a fundo branco-quente/cinza areia, preservando o painel acadêmico escuro em contraste.
+- Páginas 5 e 6: FAQ tem respiro vertical menor, sem alterar as informações.
+- Páginas 1 a 7: o link "Ir para o conteúdo" era repetido na impressão. Adicionada regra de impressão para escondê-lo; no navegador permanece acessível ao teclado.
+- Alteração de `lp.css` e `lp.js` com parâmetro de versão `20261123-layout2` para reduzir risco de cache de CSS desatualizado.
+- Inspeção estática: chaves CSS equilibradas; três ícones SVG com atributos visuais explícitos; JavaScript sintaticamente válido.
+- Verificação ainda necessária: renderizar página real em navegador desktop e mobile (360, 390, 768, 1024 e 1440 px), testar os dois passos do formulário e confirmar se a janela externa de privacidade cobre alguma interação.
+- Não publicar enquanto o endpoint `SCRIPT_URL` permanecer vazio.
