@@ -5,6 +5,12 @@
   // Não reutilize o endpoint do catálogo: ele tem outro esquema de dados.
   const SCRIPT_URL = ""; // Ex.: https://script.google.com/macros/s/AKfy.../exec
   const WHATSAPP = "5562992053534";
+  // A identidade nunca deve desaparecer mesmo se uma política do navegador bloquear WebP/data URI.
+  document.querySelectorAll("[data-brand-logo]").forEach(img => {
+    const showFallback = () => img.closest(".lp-brand")?.classList.add("logo-fallback");
+    img.addEventListener("error", showFallback, {once:true});
+    if (img.complete && !img.naturalWidth) showFallback();
+  });
   const form = document.getElementById("lp-lead-form");
   const status = document.getElementById("lp-status");
   const stepLabel = document.getElementById("lp-step-label");
