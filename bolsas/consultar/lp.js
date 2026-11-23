@@ -118,11 +118,11 @@
       "*WhatsApp:* " + get("phone"),
       "*Cidade/UF:* " + get("city") + "/" + get("state"),
       "*Para quem:* " + get("beneficiary"),
-      "*Nível de formação:* " + get("level"),
-      "*Interesse:* " + (course1 || course2 || "Preciso de orientação para escolher")
+      "*Nível de formação:* " + get("level")
     ];
     if (course1) fields.push("*Curso desejado:* " + course1);
     if (course2) fields.push("*Outra opção:* " + course2);
+    if (!course1 && !course2) fields.push("*Curso/área:* Preciso de orientação para escolher");
     fields.push("*Modalidade:* " + get("mode"));
     fields.push("*Solicitação:* " + get("intent"));
     fields.push("", "Gostaria de consultar as bolsas disponíveis e suas condições. Obrigada!");
