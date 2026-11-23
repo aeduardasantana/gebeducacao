@@ -65,3 +65,11 @@ Após modificar o código, use **Implantar → Gerenciar implantações → Edit
 - O FAQ agora distingue regulação de EJA pelos sistemas de ensino competentes, regularidade de graduações no e-MEC, certificados de cursos livres/qualificação, diplomas técnicos e SISTEC, pós-graduação lato sensu e títulos estrangeiros.
 - **Atenção:** antes de publicar alegações específicas sobre cursos/instituições, conferir atos e documentos efetivamente aplicáveis à oferta consultada. Não descrever os cursos internacionais da Enber como diplomas brasileiros já reconhecidos pelo MEC.
 - Referências oficiais: https://www.gov.br/mec/pt-br/politica-regulacao-supervisao-educacao-superior/cadastro-nacional-de-cursos-e-ies , https://portal.mec.gov.br/sistec-inicial/ , https://acervoportal.mec.gov.br/cursos-da-ept/formacao-inicial-e-continuada-ou-qualificacao-profissional , https://portaleduca.educacao.go.gov.br/suporte_ti/atos-legais-parametros/ .
+
+
+## Ajuste de posicionamento — validade da certificação
+- Não promover `instituições participantes` como argumento principal da LP nem enfatizar a origem dos certificados no hero ou seção comercial.
+- A comunicação central deve responder: qual formação, qual documento o estudante recebe e como pode verificar sua validade.
+- O FAQ esclarece, de forma distinta, EJA, cursos livres/profissionalizantes, técnicos, graduações brasileiras, especializações/MBA e diplomas estrangeiros. Não afirmar que certificado de curso livre equivale a diploma técnico, nem que diploma estrangeiro é automaticamente reconhecido no Brasil.
+- A identidade da entidade emissora e os atos documentais aplicáveis devem ficar disponíveis antes da matrícula, sem impor lista de marcas e parceiros na abertura da página.
+- Fontes oficiais consultadas para validação regulatória: Cadastro e-MEC (https://www.gov.br/mec/pt-br/politica-regulacao-supervisao-educacao-superior/cadastro-nacional-de-cursos-e-ies), Sistema SISTEC (https://portal.mec.gov.br/sistec-inicial/), FIC/Qualificação Profissional (https://acervoportal.mec.gov.br/cursos-da-ept/formacao-inicial-e-continuada-ou-qualificacao-profissional) e documentação escolar de sistemas de ensino (https://portal.mec.gov.br/setec-secretaria-de-educacao-profissional-e-tecnologica/30000-uncategorised/62851-homologacao-de-estudos-e-titulos).
