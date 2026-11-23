@@ -3,7 +3,7 @@
 
   // Cole aqui a URL /exec do NOVO Apps Script após a implantação.
   // Não reutilize o endpoint do catálogo: ele tem outro esquema de dados.
-  const SCRIPT_URL = ""; // Ex.: https://script.google.com/macros/s/AKfy.../exec
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz4_dlHcAZhz12hvSLIuC6xRhBu7SF_Wuh4W5oZrmkAlZXYBj423NwbObx1BbxisVq6/exec"; // Ex.: https://script.google.com/macros/s/AKfy.../exec
   const WHATSAPP = "5562992053534";
   // A identidade nunca deve desaparecer mesmo se uma política do navegador bloquear WebP/data URI.
   document.querySelectorAll("[data-brand-logo]").forEach(img => {
